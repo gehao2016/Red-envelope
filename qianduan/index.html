@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>全民抢豆</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mpicker.css">
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/chatRecord.css">
+    <link rel="stylesheet" href="css/margie.css">
+    <link rel="stylesheet" href="css/mediumPacketRecordCtrl.css">
+    <link rel="stylesheet" href="css/packageDetails.css">
+    <link rel="stylesheet" href="css/redPackets.css">
+    <link rel="stylesheet" href="css/robotPage.css">
+    <link rel="stylesheet" href="css/roomRecord.css">
+    <link rel="stylesheet" href="css/theHal.css">
+    <link rel="stylesheet" href="css/theRoom.css">
+    <link rel="stylesheet" href="css/topUp.css">
+    <link rel="stylesheet" href="css/xiuGai.css">
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+  </head>
+  <body ng-app="starter">
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view></ion-nav-view>
+  </body>
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <!--<script src="cordova.js"></script>-->
+
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+  <script src="js/reconnecting-websocket.min.js"></script>
+  <script src="js/ngDialog.min.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/directive.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/json.js"></script>
+  <script src="js/mPicker.js"></script>
+  <script src="js/iconfont.js"></script> <!-- 矢量图标库引用js -->
+  <script src="http://static.runoob.com/assets/qrcode/qrcode.min.js"></script>  <!-- 生成二维码 -->
+  <script src="https://cdn.bootcss.com/angular-touch/1.5.11/angular-touch.js"></script>  <!-- ng-touch事件 -->
+  <script src="js/ngTouch.js"></script>
+</html>

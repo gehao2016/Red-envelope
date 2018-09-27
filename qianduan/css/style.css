@@ -1,0 +1,115 @@
+/* Empty. Add your own CSS if you like */
+/*公共样式--开始*/
+html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select {
+  margin: 0;
+  padding: 0;
+}
+*{box-sizing: border-box;}
+html, body {
+  min-height: 100%;
+}
+body {
+  font-family: "Microsoft YaHei";
+  font-size:14px;
+  color:#333;
+}
+h1, h2, h3, h4, h5, h6{font-weight:normal;}
+ul,ol {
+  list-style: none;
+}
+
+img {
+  border: none;
+  vertical-align: middle;
+}
+a {
+  text-decoration: none;
+  color: #232323;
+}
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+input, textarea {
+  outline: none;
+  border: none;
+}
+textarea {
+  resize: none;
+  overflow: auto;
+}
+
+html,body{
+  width: 100%;
+  height: 100%;
+  font-family: Arial;
+}
+i,a{
+  cursor: pointer;
+}
+
+/*矢量图标样式*/
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+/*tab栏*/
+.theHal{
+  background: url('http://g.tonghejianzhu.com/images/datings.png') no-repeat center;
+  background-position: top;
+  background-position-y: 8px;
+}
+.theHal1{
+  background: url('http://g.tonghejianzhu.com/images/dating.png') no-repeat center;
+  background-position: top;
+  background-position-y: 8px;
+}
+.margie{
+  background: url('http://g.tonghejianzhu.com/images/kaifangs.png') no-repeat center;
+  background-position: top;
+  background-position-y: 11px;
+}
+.margie1{
+  background: url('http://g.tonghejianzhu.com/images/kaifang.png') no-repeat center;
+  background-position: top;
+  background-position-y: 11px;
+}
+.account{
+  background: url('http://g.tonghejianzhu.com/images/wodes.png') no-repeat center;
+  background-position: top;
+  background-position-y: 8px;
+}
+.account1{
+  background: url('http://g.tonghejianzhu.com/images/wode.png') no-repeat center;
+  background-position: top;
+  background-position-y: 8px;
+}
+
+
+/*共用class*/
+
+.colors{
+  color: #1c1c1c !important;
+}
+.colort{
+  color: #e1544a !important;
+}
+.bgcolors{
+  background: #e1544a !important;
+}
+.disp{
+  display: none;
+}
+.fontColor{
+  color: #e1544a !important;
+  border-bottom: 2px solid #e1544a;
+}
+.btnColor{
+  background: #e33319 !important;
+}
+.bgColor{
+  background: #e1544a !important;
+  color: #ffffff !important;
+}

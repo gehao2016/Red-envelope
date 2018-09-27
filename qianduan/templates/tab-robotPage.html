@@ -1,0 +1,35 @@
+<ion-view hide-nav-bar="true" hide-tabs="true" cache-view="false">
+  <div class="robotpage_titleOne"><a ng-touchstart="theRoom()"><i class="icon ion-ios-arrow-left"></i>返回房间</a></div>
+  <ion-content class="robotpage_content">
+    <!--<div class="robotpage_title"><a ng-click="editable(true)">取消</a><a ng-click="editable(false)">编辑</a></div>-->
+    <div class="robotpage_bgcolor">
+      <!--玩法-->
+      <p class="robotpage_label robotpage_labels">
+        <span>玩法</span>
+        <label><input type="checkbox" ng-model="ms" ng-disabled="true"><i>✓</i>房主免豆</label>
+        <label><input type="checkbox" ng-model="wbms" ng-disabled="true"><i>✓</i>尾巴免豆</label><br />
+        <label style="margin-right: 46px;"><input type="checkbox" ng-model="jq" ng-disabled="true"><i>✓</i>不可点</label>
+        <label><input type="checkbox" ng-model="fzqb" ng-disabled="true"><i>✓</i>房主清豆</label>
+      </p>
+      <!--奖励-->
+      <div class="robotpage_input one"  ng-class="{'colors': !prohibit}">
+        <div class="introduce">奖励</div>
+        <ul style="width: 100%;height: auto;">
+          <li ng-repeat="(key,value) in roomWelfare" class="robotpage_lists">{{key}}奖励<span>{{value}}</span></li>
+        </ul>
+      </div>
+      <!--个数-->
+      <div class="robotpage_input"  ng-class="{'colors': !prohibit}">
+        <div class="introduce">个数</div>
+        <ul style="width: 100%;height: auto;">
+          <li ng-repeat="(packets,nayNumbers) in roomMultiple">
+            <div style="color: #1c1c1c;display: block">{{packets}}个</div>
+            <div class="robotpage_divs" ng-repeat="(key,value) in nayNumbers">{{key}}豆<span>{{value}}</span>倍</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--<a class="robotpage_btn" ng-show="!prohibit" ng-click="hiddenDisplay(true)">完成</a>-->
+    <div class="robotpage_img" ng-show="prohibit">不可编辑</div>
+  </ion-content>
+</ion-view>

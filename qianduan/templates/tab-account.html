@@ -1,0 +1,41 @@
+<ion-view hide-nav-bar="true" cache-view='false'>
+  <!--<div class="account_title"><a><i class="icon ion-ios-arrow-left"></i></a>我的账户<a><img src="images/gengduo.png" alt="更多"/></a></div>-->
+  <ion-content class="account_content">
+    <div class="account_personal">
+      <img ng-src="{{ portrait }}" width="48" height="48" alt="头像"><span>{{ personal.name }}</span>&nbsp;&nbsp;<span>ID : <strong style="color: #e1544a">{{ userId }}</strong></span>
+    </div>
+    <div class="row" ng-click="topUp()">
+        <div class="col-50 img">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-zuanshi-xianxing"></use>
+          </svg>
+          钻石充值
+        </div>
+      <div class="col-50">
+        <a href="javascript:;">
+          余<b>{{personal.money}}</b>钻石
+        </a>
+      </div>
+    </div>
+    <div class="account_record img" ng-click="roomRecord()">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-shiliangzhinengduixiang"></use>
+      </svg>
+      房间记录<a><i class="icon ion-chevron-right"></i></a>
+    </div>
+    <div class="account_customer img" ng-click="publicCodes()">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-kefu"></use>
+      </svg>
+      联系客服</div>
+    <div class="account_again img" ng-click="theLogin()">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-tuichu"></use>
+      </svg>
+      重新登录</div>
+  </ion-content>
+  <!--充值成功-->
+  <div class="account_success" ng-if="success">
+      <img src="images/zhifuchenggong.png" alt="支付成功">
+  </div>
+</ion-view>

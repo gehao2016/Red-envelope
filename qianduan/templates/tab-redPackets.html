@@ -1,0 +1,51 @@
+<ion-view hide-nav-bar="true" hide-tabs="true" cache-view='false'>
+  <div class="redPackets_title"><a ng-touchstart="GoBack()"><i class="icon ion-ios-arrow-left"></i>返回房间</a></div>
+  <ion-content class="redPackets_content">
+    <div class="row">
+      <div class="col-33">总豆数</div>
+      <div class="col-67"><input type="text" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" placeholder="0" ng-model="money" ng-change="modifyValue(money,mine,number)" ng-focus="focusing(1)" ng-class="{'colors' : font == 1}" maxlength="6">豆</div>
+    </div>
+    <p>豆数必须是10的倍数，且豆数范围为<strong style="color: #e1544a;">({{minMoney}}~{{maxMoney}})</strong></p>
+    <div class="row">
+      <div class="col-33">豆包总数</div>
+      <div class="col-67">
+        <input type="text" class="number1" ng-model="number" ng-change="modifyValue(money,mine,number)" ng-focus="focusing(1)" placeholder="填写个数" ng-class="{'colors' : font == 1}" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" maxlength="2">个
+      </div>
+    </div>
+    <p ng-show="(number <= maxPackets &&  number >= minPackets || number >= maxPackets &&  number <= minPackets) || zhi">个数范围<strong style="color: #e1544a;">{{minPackets}}</strong>~<strong style="color: #e1544a;">{{maxPackets}}</strong>个,超出算福利包!!!</p>
+    <p ng-show="(number > maxPackets &&  number > minPackets || number < maxPackets &&  number < minPackets) && !zhi" style="color: #e1544a;">包数:<strong>{{number}}</strong>个,不在<strong>{{minPackets}}</strong>~<strong>{{maxPackets}}</strong>范围内,算福利包!!!</p>
+    <div class="row">
+      <div class="col-33">备注</div>
+      <div class="col-67">
+        <input type="text" class="mine1" ng-model="mine" ng-change="modifyValue(money,mine,number)" ng-focus="focusing(1)" ng-class="{'colors' : font == 1}" onkeyup="value=value.replace(/^[^0-9]\D*$|\D*/gi,'')" maxlength="9">
+      </div>
+    </div>
+    <p ng-show="displayBlack" style="color: #e1544a;">豆数大于400,炸弹数不能少于4个!!!</p>
+    <div class="redPackets_btn">
+      <a ng-touchstart="hiddenDisplay(true,minPackets,maxPackets,number,money,mine,remarks)" ng-class="{'bgcolors' : font == 1}">塞豆进豆包</a>
+    </div>
+  </ion-content>
+  <div class="redPackets_maskPrompt" ng-show="maskPrompt">
+    <div>
+      <div>确定之后无法修改</div>
+      <div><a ng-touchstart="hiddenDisplay(false,minPackets,maxPackets,number,money,mine,remarks)" href="javascript:;">取消</a><a  ng-touchstart="sendhb(money,number,mine,remarks,minPackets,maxPackets)" href="javascript:;">确定</a></div>
+    </div>
+  </div>
+  <div class="redPackets_maskPrompt" ng-show="packets">
+    <div>
+      <div style="line-height: 35px;color: #1c1c1c;padding-top: 5px;">超出包数范围，<br /><strong style="font-size: 20px;color: #e1544a;">确定要发福利包吗？</strong></div>
+      <div><a ng-touchstart="trueFalse()" href="javascript:;">取消</a><a  ng-touchstart="awarding(money,number,mine,remarks)" href="javascript:;">确定</a></div>
+    </div>
+  </div>
+  <div  class="redPackets_introduced" ng-show="prompt">
+    <ul>
+      <li style="background: url('../images/beans.png') no-repeat center;background-size: 100% 100%;"></li>
+      <li style="background: url('../images/packets.png') no-repeat center;background-size: 100% 100%;"></li>
+      <li style="background: url('../images/note.png') no-repeat center;background-size: 100% 100%;"></li>
+    </ul>
+    <div ng-click="shutDown()"></div>
+  </div>
+
+  <input type="text" ng-model="minPackets">
+  <input type="text" ng-model="maxPackets">
+</ion-view>

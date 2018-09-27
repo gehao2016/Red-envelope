@@ -1,0 +1,137 @@
+.details_top{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  border-bottom: 1px solid #f6f6f6;
+}
+.details_header{
+  /*height: 275px;*/
+  background: url("../images/qiangdoubeijing.png") no-repeat top center;
+  background-size: 100%;
+  position: relative;
+}
+.details_header .details_return{
+  width: 25%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: #e1544a;
+  color: #ffffff;
+  font-size: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.details_header .details_return>i{
+  font-size: 26px;
+  margin-right: 3px;
+}
+/*.details_title{*/
+  /*height: 50px;*/
+  /*line-height: 50px;*/
+  /*text-align: center;*/
+  /*position: relative;*/
+  /*color: #ffffff;*/
+  /*font-size: 18px;*/
+  /*letter-spacing: 2px;*/
+/*}*/
+/*.details_title>a{*/
+  /*display: inline-block;*/
+  /*width: 15%;*/
+  /*height: 50px;*/
+  /*text-decoration: underline;*/
+  /*font-size: 24px;*/
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  /*color: #ffffff;*/
+/*}*/
+
+.details_personal{
+  padding-top: 90px;
+}
+.details_personal>div:nth-child(1){
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  position: relative;
+  left: 50%;
+  top: 0;
+  margin-left: -30px;
+}
+.details_personal>p{
+  font-size: 15px;
+  color: #1c1c1c;
+  text-align: center;
+  margin-top: 15px;
+}
+.details_personal>p>span{
+  padding-top: 15px;
+  font-size: 14px;
+  color: #1c1c1c;;
+}
+.details_personal>h2{
+  text-align: center;
+  font-weight: bold;
+  font-size: 50px;
+  position: relative;
+}
+.details_personal>h2>span{
+  position: absolute;
+  left: 65%;
+  top: 55%;
+  font-weight: 400;
+  font-size: 14px;
+}
+.details_receive{
+  height: 40px;
+  border-bottom: solid 1px #eeeeee;
+  padding: 0 15px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #AAAAAA;
+}
+.details_content{
+  margin-top: 260px;
+  padding: 0 15px 0 15px;
+}
+.details_lists li{
+  overflow: hidden;
+  border-bottom: solid 1px #f6f6f6;
+}
+.details_lists li>div{
+  float: left;
+}
+.details_lists li>div:nth-child(1){
+  width: 15%;
+  padding-top: 15px;
+}
+.details_lists li div:nth-child(1)>img{
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+.details_lists li div:nth-child(2){
+  height: 40px;
+  font-size: 16px;
+  color: #1c1c1c;
+  width: 42%;
+  padding-top: 15px;
+}
+.details_lists li div:nth-child(2)>span{
+  display: inline-block;
+  font-size: 13px;
+  color: #AAAAAA;
+}
+.details_lists li div:nth-last-child(1){
+  width: 43%;
+  height: 71px;
+  text-align: right;
+  padding-top: 10px;
+}
+.details_lists li div .icon{
+  width: 13px;
+  height: 13px;
+}

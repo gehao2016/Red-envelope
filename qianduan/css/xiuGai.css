@@ -1,0 +1,591 @@
+/*tab切换*/
+.xiuGai_title{
+  height: 50px;
+  width: 100%;
+  padding: 5px 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background: #fff;
+}
+.xiuGai_title>div{
+  width: 100%;
+  height: 100%;
+  border: solid 1px #e1544a;
+  border-radius: 5px;
+  display: flex;
+  display: -webkit-flex;
+}
+.xiuGai_title>div>a{
+  display: inline-block;
+  height: 38px;
+  flex-grow: 1;
+  font-size: 16px;
+  text-align: center;
+  line-height: 38px;
+  letter-spacing: 2px;
+  color: #e1544a;
+}
+.xiuGai_title>div>a:nth-child(2){
+  border-right: solid 1px #e1544a;
+  border-left: solid 1px #e1544a;
+}
+.xiuGai_content{
+  margin-top: 50px;
+  background: #f6f6f6;
+}
+
+
+/*充值钻石修饰开始*/
+
+.imitation_content{
+  margin-bottom: 60px;
+}
+.imitation_content input{
+  padding: 0;
+}
+.imitation_title{
+  padding: 5px 20px;
+  background: #ffffff;
+  margin-bottom: 15px;
+}
+.imitation_title input{
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  text-align: center;
+  font-size: 18px;
+}
+.imitation_list input{
+  display: inline-block;
+}
+.imt_list{
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  background: #ffffff;
+  margin-bottom: 2px;
+}
+.imt_list .imt_name{
+  width: 70%;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
+.imt_list>div:nth-child(1){
+  width: 60%;
+  height: 40px;
+  float: left;
+}
+.imt_list>div:nth-last-child(1){
+  width: 40%;
+  height: 40px;
+  float: left;
+  text-align: center;
+}
+.imt_list>div:nth-child(1) span{
+  display: inline-block;
+  float: left;
+  height: 40px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.imt_list input{
+  width: 80px;
+  height: 30px;
+  border: 1px solid #AAAAAA;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  color: #e1544a;
+  position: relative;
+  top: -1px;
+}
+.imitation_list .imt_list label {
+  font-size:12px;
+  cursor:pointer;
+}
+.imitation_list .imt_list label i {
+  font-size:16px;
+  font-style:normal;
+  display:inline-block;
+  width:20px;
+  height:20px;
+  text-align:center;
+  line-height:21px;
+  color:#fff;
+  vertical-align:middle;
+  margin:-2px 12px 1px 0px;
+  border:#aaa 1px solid;
+}
+.imitation_list .imt_list input[type="checkbox"],input[type="radio"] {
+  display:none;
+}
+.imitation_list .imt_list input[type="radio"] + i {
+  border-radius:7px;
+}
+.imitation_list input[type="checkbox"]:checked + i,input[type="radio"]:checked + i {
+  background:#fff;
+  border-color:#e1544a;
+  color: #e1544a !important;
+}
+.imitation_list .imt_list input[type="checkbox"]:disabled + i,input[type="radio"]:disabled + i {
+  border-color:#ccc;
+
+}
+.imitation_list .imt_list input[type="checkbox"]:checked:disabled + i,input[type="radio"]:checked:disabled + i {
+  background:#ccc;
+}
+
+.imitation_footer{
+  width: 100%;
+  height: 50px;
+  background: #ffffff;
+  padding: 5px 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+}
+.imitation_footer>a{
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  background: #e1544a;
+  letter-spacing: 5px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+/*发包提示遮罩*/
+.imitation_maskPrompt {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .3);
+  position: fixed;
+  z-index: 6;
+  top: 0;
+  left: 0;
+}
+.imitation_maskPrompt>div{
+  width: 260px;
+  border-radius: 5px;
+  text-align: center;
+  background: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.imitation_maskPrompt>div>div:nth-child(1){
+  height: 80px;
+  line-height: 80px;
+  font-size: 18px;
+  color: #1c1c1c;
+  border-bottom: solid 1px #AAAAAA;
+}
+.imitation_maskPrompt>div>div:nth-last-child(1){
+  height: 50px;
+}
+.imitation_maskPrompt>div>div:nth-last-child(1) a{
+  display: inline-block;
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+}
+.imitation_maskPrompt a:nth-child(1){
+  color: #AAAAAA;
+  border-right: solid 1px #AAAAAA;
+}
+.imitation_maskPrompt a:nth-last-child(1){
+  color: #e1544a;
+}
+
+/*充值钻石修饰结束*/
+
+
+/*房间概率修饰开始*/
+
+.probability_content{
+  margin-bottom: 60px;
+}
+.probability_content input{
+  padding: 0;
+}
+.probability_title{
+  padding: 5px 20px;
+  background: #ffffff;
+  margin-bottom: 15px;
+}
+.probability_title input{
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  text-align: center;
+  font-size: 18px;
+}
+.probability_lists input{
+  display: inline-block;
+}
+.probability_list{
+  height: 40px;
+  line-height: 40px;
+  padding: 0 5px;
+  background: #ffffff;
+  margin-bottom: 2px;
+}
+.probability_list .probability_name{
+  width: 70%;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
+.probability_list>div:nth-child(1){
+  width: 60%;
+  height: 40px;
+  float: left;
+}
+.probability_list>div:nth-last-child(1){
+  width: 40%;
+  height: 40px;
+  float: left;
+  text-align: center;
+}
+.probability_list>div:nth-child(1) span{
+  display: inline-block;
+  float: left;
+  height: 40px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.probability_list input{
+  width: 35px;
+  height: 30px;
+  border: 1px solid #AAAAAA;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  color: #e1544a;
+  position: relative;
+  top: -1px;
+}
+.probability_lists .probability_list label {
+  font-size:12px;
+  cursor:pointer;
+}
+.probability_lists .probability_list label i {
+  font-size:16px;
+  font-style:normal;
+  display:inline-block;
+  width:20px;
+  height:20px;
+  text-align:center;
+  line-height:21px;
+  color:#fff;
+  vertical-align:middle;
+  margin:-2px 6px 1px 0px;
+  border:#aaa 1px solid;
+}
+.probability_lists .probability_list input[type="checkbox"],input[type="radio"] {
+  display:none;
+}
+.probability_lists .probability_list input[type="radio"] + i {
+  border-radius:7px;
+}
+.probability_lists .probability_list input[type="checkbox"]:checked + i,input[type="radio"]:checked + i {
+  background:#fff;
+  border-color:#e1544a;
+  color: #e1544a !important;
+}
+.probability_lists .probability_list input[type="checkbox"]:disabled + i,input[type="radio"]:disabled + i {
+  border-color:#ccc;
+}
+.probability_lists .probability_list input[type="checkbox"]:checked:disabled + i,input[type="radio"]:checked:disabled + i {
+  background:#ccc;
+}
+.probability_footer{
+  width: 100%;
+  height: 50px;
+  background: #ffffff;
+  padding: 5px 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+}
+.probability_footer>a{
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  background: #e1544a;
+  letter-spacing: 5px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+/*发包提示遮罩*/
+.probability_maskPrompt {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .3);
+  position: fixed;
+  z-index: 6;
+  top: 0;
+  left: 0;
+}
+.probability_maskPrompt>div{
+  width: 260px;
+  border-radius: 5px;
+  text-align: center;
+  background: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.probability_maskPrompt>div>div:nth-child(1){
+  height: 80px;
+  line-height: 80px;
+  font-size: 18px;
+  color: #1c1c1c;
+  border-bottom: solid 1px #AAAAAA;
+}
+.probability_maskPrompt>div>div:nth-last-child(1){
+  height: 50px;
+}
+.probability_maskPrompt>div>div:nth-last-child(1) a{
+  display: inline-block;
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+}
+.probability_maskPrompt a:nth-child(1){
+  color: #AAAAAA;
+  border-right: solid 1px #AAAAAA;
+}
+.probability_maskPrompt a:nth-last-child(1){
+  color: #e1544a;
+}
+.probability_btn{
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 19px;
+  color: #aaa;
+  position: relative;
+  top: 4px;
+  border: 1px solid #aaa;
+}
+
+/*房间概率修饰结束*/
+
+
+/*个人概率修饰开始*/
+
+.rate_content{
+  margin-bottom: 60px;
+}
+.rate_content input{
+  padding: 0;
+}
+.rate_title{
+  padding: 5px 20px;
+  background: #ffffff;
+  margin-bottom: 15px;
+}
+.rate_title input{
+  width: 80%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  text-align: center;
+  font-size: 18px;
+  display: inline-block;
+}
+.rate_title a{
+  width: 18%;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #1c1c1c;
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+  top: 2px;
+  margin-left: 2%;
+  border-radius: 5px;
+}
+.rate_lists input{
+  display: inline-block;
+}
+.rate_list{
+  height: 40px;
+  line-height: 40px;
+  padding: 0 5px;
+  background: #ffffff;
+  margin-bottom: 2px;
+}
+.rate_list .rate{
+  width: 70%;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
+.rate_list>div:nth-child(1){
+  width: 60%;
+  height: 40px;
+  float: left;
+}
+.rate_list>div:nth-last-child(1){
+  width: 40%;
+  height: 40px;
+  float: left;
+  text-align: center;
+}
+.rate_list>div:nth-child(1) span{
+  display: inline-block;
+  height: 40px;
+  font-size: 16px;
+  text-align: left;
+}
+.rate_list>div:nth-child(1) a{
+  display: inline-block;
+  height: 40px;
+  width: 20%;
+  font-size: 20px;
+  text-align: center;
+  line-height: 40px;
+  color: #e1544a;
+}
+
+.rate_list input{
+  width: 35px;
+  height: 30px;
+  border: 1px solid #AAAAAA;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  color: #e1544a;
+  position: relative;
+  top: -1px;
+}
+.rate_footer{
+  width: 100%;
+  height: 50px;
+  background: #ffffff;
+  padding: 5px 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+}
+.rate_footer>a{
+  display: block;
+  width: 100%;
+  height: 40px;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  background: #e1544a;
+  letter-spacing: 5px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+/*发包提示遮罩*/
+.rate_maskPrompt {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .3);
+  position: fixed;
+  z-index: 6;
+  top: 0;
+  left: 0;
+}
+.rate_maskPrompt>div{
+  width: 260px;
+  border-radius: 5px;
+  text-align: center;
+  background: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.rate_maskPrompt>div>div:nth-child(1){
+  height: 80px;
+  line-height: 80px;
+  font-size: 18px;
+  color: #1c1c1c;
+  border-bottom: solid 1px #AAAAAA;
+}
+.rate_maskPrompt>div>div:nth-last-child(1){
+  height: 50px;
+}
+.rate_maskPrompt>div>div:nth-last-child(1) a{
+  display: inline-block;
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+}
+.rate_maskPrompt a:nth-child(1){
+  color: #AAAAAA;
+  border-right: solid 1px #AAAAAA;
+}
+.rate_maskPrompt a:nth-last-child(1){
+  color: #e1544a;
+}
+.rate_btn{
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 19px;
+  color: #aaa;
+  position: relative;
+  top: 4px;
+  border: 1px solid #aaa;
+}
+.rate_zengjia{
+  padding: 0 10px;
+}
+.rate_zengjia a{
+  display: inline-block;
+  width: 100%;
+  background: #e1544a;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.rate_zengjia i{
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+/*个人修改修饰结束*/

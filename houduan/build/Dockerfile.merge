@@ -1,0 +1,7 @@
+FROM reg.lq/jlzhang/front_end
+
+COPY ./dist /
+
+WORKDIR /opt/grabRedEnvelopes
+
+CMD ["./grabRedEnvelopes"]

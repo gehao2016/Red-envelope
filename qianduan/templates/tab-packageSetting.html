@@ -1,0 +1,193 @@
+<ion-view hide-nav-bar="true" hide-tabs="true">
+  <style>
+    .probability_footer{
+      width: 100%;
+      height: 50px;
+      background: #ffffff;
+      padding: 5px 20px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 5;
+    }
+    .probability_footer>a{
+      display: block;
+      width: 100%;
+      height: 40px;
+      font-size: 18px;
+      line-height: 40px;
+      text-align: center;
+      background: #e1544a;
+      letter-spacing: 5px;
+      color: #fff;
+      border-radius: 5px;
+    } /*发包提示遮罩*/
+    .probability_maskPrompt {
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .3);
+      position: fixed;
+      z-index: 6;
+      top: 0;
+      left: 0;
+    }
+    .probability_maskPrompt>div{
+      width: 260px;
+      border-radius: 5px;
+      text-align: center;
+      background: #ffffff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+    .probability_maskPrompt>div>div:nth-child(1){
+      height: 80px;
+      line-height: 80px;
+      font-size: 18px;
+      color: #1c1c1c;
+      border-bottom: solid 1px #AAAAAA;
+    }
+    .probability_maskPrompt>div>div:nth-child(2){
+      height: 80px;
+      line-height: 80px;
+      font-size: 18px;
+      color: #1c1c1c;
+      border-bottom: solid 1px #AAAAAA;
+    }
+    .probability_maskPrompt>div>div:nth-last-child(1){
+      height: 50px;
+    }
+    .probability_maskPrompt>div>div:nth-last-child(1) a{
+      display: inline-block;
+      width: 50%;
+      height: 50px;
+      line-height: 50px;
+      font-size: 18px;
+    }
+    .probability_maskPrompt a:nth-child(1){
+      color: #AAAAAA;
+      border-right: solid 1px #AAAAAA;
+    }
+    .probability_maskPrompt a:nth-last-child(1){
+      color: #e1544a;
+    }
+    .probability_content input{
+      display: inline-block;
+      width: 25%;
+      height: 25px;
+      line-height: 25px;
+    }
+    .probability_content .row{
+      padding: 0;
+      margin: 20px 0;
+      height: 40px;
+      line-height: 40px;
+      font-size: 18px;
+    }
+    .setting_but{
+      padding: 10px 10px 0;
+    }
+    .setting_but span{
+      color: #e1544a;
+      font-size: 18px;
+      position: relative;
+      top: 3px;
+      color: #1c1c1c;
+    }
+    .chatRecord_but{
+      width: 50px;
+      height: 30px;
+      border-radius: 15px;
+      background: #aaa;
+      display: inline-block;
+      margin-right: 20px;
+    }
+    .chatRecord_but label {
+      cursor:pointer;
+      width:30px;
+      height:30px;
+      border-radius: 50%;
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    .chatRecord_but .chatRecord_label{
+      left: 20px;
+    }
+    .chatRecord_but label i {
+      font-style:normal;
+      display:inline-block;
+      width:30px;
+      height:30px;
+      vertical-align:middle;
+      border-radius: 50%;
+      z-index: 3;
+      background: #fff;
+      border: 2px solid #aaa;
+      box-sizing: border-box;
+    }
+    .chatRecord_but label .bor{
+      border-color: #e1544a;
+    }
+    .chatRecord_but input[type="checkbox"],input[type="radio"] {display:none;}
+  </style>
+  <ion-content class="probability_content">
+    <div class="setting_but">
+      <div class="chatRecord_but" ng-class="{'bgcolors': isUsing == true}">
+        <label ng-click="determine(isUsing)" ng-class="{'chatRecord_label': isUsing == true}"><input ng-model="isUsing" type="checkbox"><i ng-class="{'bor':isUsing == true}"></i></label>
+      </div>
+      <span>开关状态 : <strong style="color: #e1544a;" ng-show="isUsing == false">关闭</strong><strong style="color: #e1544a;" ng-show="isUsing == true">开启</strong></span>
+    </div>
+    <ul style="width: 100%;padding: 6px 0;">
+      <li class="margie_room"  >
+        <div class="margie_more row">
+          <div class="col-25">房间ID :</div>
+          <div class="col-75" style="text-align: center;"><input onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" ng-focus="changeColor(true)" style="font-size: 18px;border: solid 1px #aaa;" ng-change="nameModify(roomID)" class="margie_inputone" type="text" ng-model="roomID" ng-class="{'colors': prohibit}"/></div>
+        </div>
+        <div class="margie_packets margie_more row">
+          <div class="col-25">发包时间 :</div>
+          <div class="col-75"  ng-class="{'colors': prohibit}">
+            <input type="text"  ng-focus="changeColor(true)" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" maxlength="2" ng-change="timeEntry(timeMin,timeMax)" ng-class="{'colors': prohibit}" class="margie_width" ng-model="timeMin"/>
+            -
+            <input type="text"  ng-focus="changeColor(true)" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" maxlength="2" ng-change="timeEntry(timeMin,timeMax)" ng-class="{'colors': prohibit}" class="margie_width" ng-model="timeMax"/>秒
+          </div>
+        </div>
+        <div class="margie_packets margie_more row">
+          <div class="col-25">豆数范围 :</div>
+          <div class="col-75"  ng-class="{'colors': prohibit}">
+            <input type="text"  ng-focus="changeColor(true)" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" maxlength="5" ng-change="beanRange(minMoney,maxMoney)" ng-class="{'colors': prohibit}" class="margie_width" ng-model="minMoney"/>
+            -
+            <input type="text"  ng-focus="changeColor(true)" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" maxlength="5" ng-change="beanRange(minMoney,maxMoney)" ng-class="{'colors': prohibit}" class="margie_width" ng-model="maxMoney"/>豆
+          </div>
+        </div>
+        <div class="margie_packets margie_more row">
+          <div class="col-25">包数范围 :</div>
+          <div class="col-75"  ng-class="{'colors': prohibit}">
+            <input type="text"  ng-focus="changeColor(true)" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" maxlength="2" ng-change="modify(minParts,maxParts)" ng-class="{'colors': prohibit}" class="margie_width" ng-model="minParts"/>
+            -
+            <input type="text"  ng-focus="changeColor(true)" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" maxlength="2" ng-change="modify(minParts,maxParts)" ng-class="{'colors': prohibit}" class="margie_width" ng-model="maxParts"/>包
+          </div>
+        </div>
+        <div class="margie_packets margie_more row">
+          <div class="col-25">炸弹范围 :</div>
+          <div class="col-75"  ng-class="{'colors': prohibit}">
+            <input type="text"  ng-focus="changeColor(true)" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" maxlength="5" ng-change="BombEntry(BombMin,BombMax)" ng-class="{'colors': prohibit}" class="margie_width" ng-model="BombMin"/>
+            -
+            <input type="text"  ng-focus="changeColor(true)" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" maxlength="5" ng-change="BombEntry(BombMin,BombMax)" ng-class="{'colors': prohibit}" class="margie_width" ng-model="BombMax"/>个
+          </div>
+        </div>
+      </li>
+    </ul>
+  </ion-content>
+  <div class="probability_footer"><a ng-click="settingSuc(true)">确定</a></div>
+  <div class="probability_maskPrompt" ng-show="maskPrompt">
+    <div>
+      <div ng-show="!isUsing">你确定关闭自动发包吗?</div>
+      <div ng-show="isUsing">你确定开启自动发包吗?</div>
+      <div><a ng-click="settingSuc(false)" href="javascript:;">取消</a><a  ng-click="upload()" href="javascript:;">确定</a></div>
+    </div>
+  </div>
+</ion-view>

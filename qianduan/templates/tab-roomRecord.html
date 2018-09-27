@@ -1,0 +1,34 @@
+<ion-view hide-nav-bar="true" hide-tabs="true" cache-view='false'>
+  <div class="record_title">
+    <div class="record_title_top"><a ng-touchend="GoBack()"><i class="icon ion-ios-arrow-left"></i>返回个人</a></div>
+    <div class="row record_btn">
+      <div class="col-50" ng-click="ShowHidden(1)" ng-class="{ 'fontColor' : index == 1}">房主</div>
+      <div class="col-50" ng-click="ShowHidden(2)" ng-class="{ 'fontColor' : index == 2}">玩家</div>
+    </div>
+  </div>
+  <ion-content class="record_content">
+    <!--房主房间记录-->
+    <div ng-show="index == 1" class="record_owner">
+      <ul >
+        <li>房号<span>{{}}011</span></li>
+        <li>未结豆</li>
+        <li class="record_owner_for" ng-repeat="datail in datails">
+          <div><img ng-src= {{datail.portrait}} alt="头像"></div>
+          <div>{{datail.nickname}} <br /> <span>{{datail.date}} {{datail.times}}</span> </div>
+          <div>{{datail.money}}豆</div>
+        </li>
+      </ul>
+    </div>
+    <!--玩家房间记录-->
+    <div ng-show="index == 2" class="record_player">
+      <ul>
+        <li>未结豆</li>
+        <li class="record_owner_for" ng-repeat="datail in datails">
+          <div><img ng-src= {{datail.portrait}} alt="头像"></div>
+          <div>{{datail.nickname}} <br /> <span>{{datail.room}}房间</span> </div>
+          <div>{{datail.money}}豆</div>
+        </li>
+      </ul>
+    </div>
+  </ion-content>
+</ion-view>

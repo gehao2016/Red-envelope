@@ -1,0 +1,44 @@
+workspace:
+  base: /go
+  path: src/grabRedEnvelopes
+
+pipeline:
+  build:
+    image: golang:1.10.2
+    commands:
+      - CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o grabRedEnvelopes .
+      - mkdir -p dist/opt/grabRedEnvelopes
+      - mkdir -p dist/etc/ssl/certs
+      - cp ./build/ca-certificates.crt dist/etc/ssl/certs
+      - cp ./grabRedEnvelopes dist/opt/grabRedEnvelopes/
+  publish_self:
+    image: plugins/docker
+    group: publish
+    dockerfile: ./build/Dockerfile.self
+    tags: latest
+    mirror: http://192.168.43.200:5000
+    registry: reg.lq
+    insecure: true
+    repo: reg.lq/jlzhang/back_end
+  publish_merge:
+    image: plugins/docker
+    group: publish
+    dockerfile: ./build/Dockerfile.merge
+    tags: latest
+    mirror: http://192.168.43.200:5000
+    registry: reg.lq
+    insecure: true
+    repo: reg.lq/jlzhang/grab
+  deploy_release:
+    image: appleboy/drone-ssh
+    host: 10.0.0.11
+    username: jlzhang
+    secrets: [ ssh_password ]
+    port: 22
+    command_timeout: 300
+    script:
+      - docker stop grab || true
+      - docker pull reg.lq/jlzhang/grab:latest
+      - docker run --rm -d --name grab -p 8091:8091 -v /opt/grabRedEnvelopes/config.json:/opt/grabRedEnvelopes/config.json reg.lq/jlzhang/grab:latest
+    when:
+      event: tag

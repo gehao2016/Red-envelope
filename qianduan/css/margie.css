@@ -1,0 +1,506 @@
+/*头部*/
+/*.margie_title {*/
+  /*width: 100%;*/
+  /*height: 40px;*/
+  /*position: fixed;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  /*background-color: #000000;*/
+  /*text-align: center;*/
+  /*line-height: 40px;*/
+  /*font-size: 18px;*/
+  /*color: #ffffff;*/
+  /*z-index: 2;*/
+/*}*/
+
+/*.margie_title > a:nth-child(1) {*/
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  /*font-size: 24px;*/
+  /*color: #ffffff;*/
+  /*display: inline-block;*/
+  /*width: 50px;*/
+  /*height: 100%;*/
+/*}*/
+
+/*.margie_title > a:nth-last-child(1) {*/
+  /*position: absolute;*/
+  /*right: 0;*/
+  /*color: #ffffff;*/
+  /*display: inline-block;*/
+  /*width: 15%;*/
+  /*height: 100%;*/
+/*}*/
+
+/*.margie_title > a:nth-last-child(1) > img {*/
+  /*position: relative;*/
+  /*top: -2px;*/
+/*}*/
+
+input[type=button],input[type=text],input[type=number]{
+  -webkit-appearance:none;
+  outline:none;
+}
+.margie_content {
+  /*margin-top: 40px;*/
+  background: #f6f6f6;
+}
+
+.margie_form {
+  padding: 15px;
+  padding-bottom: 24%;
+  background: #f6f6f6;
+}
+
+.margie_bgcolor {
+  border-radius: 5px;
+  background: #ffffff;
+}
+.margie_bgcolor .row{
+  padding: 0;
+}
+.margie_bgcolor input{
+  padding: 0;
+  border-radius: 0;
+  color: #AAAAAA;
+  display: inline-block;
+}
+.margie_room{
+  padding: 0 10px;
+  /*border-bottom: solid 2px #f6f6f6;*/
+}
+.margie_bgcolor>li{
+  width: 100%;
+}
+.margie_bgcolor .row{
+  margin-top: 0;
+}
+.margie_bgcolor .margie_more {
+  height: 50px;
+  width: 100%;
+  line-height: 50px;
+  color: #1c1c1c;
+  font-size: 16px;
+  border-bottom: solid 1px #f6f6f6;
+}
+.margie_more input{
+  font-size: 16px;
+  text-align: center;
+}
+.margie_more select{
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  border: solid 1px #aaa;
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  background: url("../images/xiajiantou.png") no-repeat scroll right 5px center transparent;
+  padding: 0 20px 0 7px;
+  font-size: 16px;
+  border-radius: 4px;
+  color: #aaa;
+}
+.margie_more select::-ms-expand {
+  display: none;
+}
+
+.margie_inputone{
+  width: 100%;
+}
+.margie_bgcolor > p:nth-child(1) > input {
+  color: #aaa;
+}
+.margie_packets .col-75{
+  text-align: center;
+  color: #AAAAAA;
+  font-size: 16px;
+}
+.margie_packets input{
+  width: 20%;
+  height: 20px;
+  line-height: 20px;
+  position: relative;
+  top: -2px;
+  border-radius: 2px;
+  border: 1px solid #AAAAAA;
+  color: #AAAAAA;
+  text-align: center;
+}
+.margie_packets input:nth-last-child(1){
+  margin-right: 4px;
+}
+.margie_pbottom .col-25{
+  height: 50px;
+  line-height: 50px;
+  color: #1c1c1c;
+  font-size: 16px;
+}
+.margie_pbottom .col-75{
+  padding: 10px 0;
+}
+.margie_pbottom label {
+  font-size: 15px;
+  cursor: pointer;
+  width: 50%;
+  padding-left: 10px;
+  float: left;
+}
+
+.margie_pbottom label i {
+  font-size: 14px;
+  font-style: normal;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  text-align: center;
+  line-height: 14px;
+  color: #f3f3f3;
+  background-color: #f3f3f3;
+  vertical-align: middle;
+  margin: -2px 5px 1px 0px;
+  border: #e5e5e5 1px solid;
+}
+
+.margie_pbottom input[type="checkbox"], input[type="radio"] {
+  display: none;
+}
+
+.margie_pbottom input[type="radio"] + i {
+  border-radius: 7px;
+}
+
+.margie_pbottom input[type="checkbox"]:checked + i, input[type="radio"]:checked + i {
+  /*background: #2489c5;*/
+  color: #1c1c1c;
+}
+
+.margie_pbottom input[type="checkbox"]:disabled + i, input[type="radio"]:disabled + i {
+  border-color: #e5e5e5;
+}
+
+.margie_pbottom input[type="checkbox"]:checked:disabled + i, input[type="radio"]:checked:disabled + i {
+  background: #f3f3f3;
+}
+
+/*福利，雷数*/
+.margie_input{
+  font-size: 16px;
+  color: #1c1c1c;
+}
+.margie_inputtwo{
+  font-size: 14px;
+  color: #1c1c1c;
+  background: #ffffff;
+  position: relative;
+}
+.margie_inputtwo input{
+  border-radius: 0;
+  height: 22px !important;
+  width: 50%;
+  text-align: center;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 10px;
+  font-size: 18px;
+  line-height: 22px;
+  position: relative;
+  top: -1px;
+  border: 1px solid #AAAAAA;
+}
+.margie_ray .margie_lefttwo{
+  width: 13%;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  font-size: 18px;
+  float: left;
+}
+.margie_ray .margie_righttwo{
+  width: 87%;
+  line-height: 26px;
+  font-size: 16px;
+  float: left;
+}
+.margie_ray .margie_righttwo>div{
+  float: left;
+  width: 33%;
+  font-size: 18px;
+}
+.margie_input input{
+  border-radius: 0;
+  height: 20px !important;
+  padding: 0;
+  font-size: 16px;
+  line-height: 20px;
+  position: relative;
+  top: 2px;
+}
+.margie_welfare>li{
+  width: 50%;
+  height: 30px;
+  line-height: 30px;
+  font-size: 18px;
+  float: left;
+  padding: 0 15px;
+}
+.margie_welfare input{
+  width: 58%;
+  height: 22px !important;
+  line-height: 22px;
+  color: #aaa;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid #aaa;
+  position: relative;
+  top: 4px;
+  float: right;
+}
+.margie_welfare1{
+  width: 50%;
+  display: inline-block;
+  height: auto;
+}
+.margie_welfare1>div{
+  color: #1c1c1c;
+  text-align: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #f6f6f6;
+}
+.margie_welfare1>li{
+  line-height: 30px;
+  font-size: 18px;
+  padding: 2px 20px;
+}
+.margie_welfare1 input{
+  width: 58%;
+  height: 22px !important;
+  line-height: 22px;
+  color: #aaa;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid #aaa;
+  position: relative;
+  top: 4px;
+  float: right;
+}
+.margie_multiple li{
+  margin: 0;
+}
+.margie_bgcolor span{
+  font-size: 14px;
+  color: #1c1c1c;
+}
+.margie_bgcolor .introduce{
+  position: absolute;
+  top: 8px;
+  left: 15px;
+}
+
+.margie_button{
+  width: 100%;
+  height: 50px;
+  padding: 5px 0;
+  background: #ffffff;
+  position: fixed;
+  left: 0;
+  bottom: 49px;
+}
+.margie_button>a {
+  display: block;
+  width: 92%;
+  height: 40px;
+  margin-left: 4%;
+  background: #f5847c;
+  color: #ffffff;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 5px;
+}
+.margie_package{
+  overflow: hidden;
+}
+.margie_package>div:nth-child(1){
+  width: 10%;
+  float: left;
+}
+.margie_package>div:nth-last-child(1){
+  width: 90%;
+  float: left;
+  padding-left: 5px;
+}
+.margie_package>div:nth-last-child(1) div{
+  margin-right: 4px;
+}
+.margie_package .margie_div{
+  display: inline-block;
+}
+.margie_package div input{
+  width: 20px;
+  height: 14px;
+  line-height: 14px;
+  text-align: center;
+  color: #e1544a;
+  padding: 0;
+  display: inline-block;
+  margin: 0 2px;
+  position: relative;
+  top: -2px;
+}
+.margie_div span{
+  color: #e1544a;
+}
+.margie_left{
+  width: 16%;
+  float: left;
+  text-align: right;
+  font-weight: bold;
+}
+.margie_right{
+  width: 84%;
+  height: 70px;
+  float: left;
+  text-align: left;
+  padding-left: 5px;
+}
+.margie_reward{
+  width: 50%;
+  text-align: center;
+  float: left;
+}
+.margie_divwelfare{
+  overflow: hidden;
+  padding: 5px 0;
+  border-bottom: 1px solid #f8f8f8;
+}
+.margie_divwelfare span{
+  padding: 0 2px;
+  margin-right: 10px;
+  color: #e1544a;
+}
+.margie_form .margie_bgcolor .margie_btn{
+  width: 100%;
+  padding: 0 10px;
+}
+.magnet_btn_div{
+  height: 40px;
+  border-bottom: solid 1px #f6f6f6;
+  display: flex;
+  display: -webkit-flex;
+}
+.magnet_btn_div a{
+  display: inline-block;
+  width: 33%;
+  height: 40px;
+  flex-grow: 1;
+  font-size: 20px;
+  text-align: center;
+  line-height: 40px;
+}
+/*开房提示遮罩*/
+.margie_maskPrompt {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .3);
+  position: fixed;
+  z-index: 6;
+  top: 0;
+  left: 0;
+}
+
+.margie_maskPrompt > div {
+  width: 278px;
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+  background: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.margie_maskPrompt > div > div:nth-child(1) {
+  color: #1c1c1c;
+  height: 30px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+  background: #f8f8f8;
+}
+
+.margie_maskPrompt > div > p {
+  color: #1c1c1c;
+  font-size: 12px;
+  text-align: center;
+}
+
+.margie_maskPrompt > div > div:nth-last-child(1) {
+  height: 56px;
+  overflow: hidden;
+}
+
+.margie_maskPrompt > div > div:nth-last-child(1) > a {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  line-height: 56px;
+  font-size: 15px;
+}
+
+.margie_maskPrompt > div > div:nth-last-child(1) > a:nth-child(1) {
+  border-right: solid 1px #f8f8f8;
+  color: #AAAAAA;
+}
+
+.margie_maskPrompt > div > div:nth-child(3) > a:nth-child(2) {
+  color: #e1544a;
+}
+
+/*房间设置遮罩*/
+.margie_introduced{
+  width: 100%;
+  height: 100%;
+  background:  rgba(0, 0, 0, .7);
+  position: fixed;
+  z-index: 6;
+  top: 0;
+  left: 0;
+  padding: 15px;
+}
+.margie_introduced li{
+  float: left;
+}
+.margie_introduced li:nth-child(1){
+  width: 96px;
+  height: 190px;
+  margin-left: 16px;
+}
+.margie_introduced li:nth-child(2){
+  width: 91px;
+  height: 158px;
+  margin-left: 15px;
+}
+.margie_introduced li:nth-last-child(1){
+  width: 97px;
+  height: 159px;
+  margin-left: 15px;
+}
+.margie_introduced>div{
+  width: 193px;
+  height: 60px;
+  background: url("../images/btn.png") no-repeat center;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  margin-left: -96px;
+}
+

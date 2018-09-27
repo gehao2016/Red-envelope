@@ -1,0 +1,35 @@
+workspace:
+  base: /static
+
+pipeline:
+  publish_self:
+    image: plugins/docker
+    group: publish
+    dockerfile: ./build/Dockerfile.self
+    tags: latest
+    mirror: http://192.168.43.200:5000
+    registry: 192.168.43.200:5001
+    insecure: true
+    repo: 192.168.43.200:5001/jlzhang/front_end
+  publish_merge:
+    image: plugins/docker
+    group: publish
+    dockerfile: ./build/Dockerfile.merge
+    tags: latest
+    mirror: http://192.168.43.200:5000
+    registry: 192.168.43.200:5001
+    insecure: true
+    repo: 192.168.43.200:5001/jlzhang/grab
+  deploy_release:
+    image: appleboy/drone-ssh
+    host: 10.0.0.11
+    username: jlzhang
+    secrets: [ ssh_password ]
+    port: 22
+    command_timeout: 300
+    script:
+      - docker stop grab || true
+      - docker pull 192.168.43.200:5001/jlzhang/grab:latest
+      - docker run --rm -d --name grab -p 8091:8091 -v /opt/grabRedEnvelopes/config.json:/opt/grabRedEnvelopes/config.json 192.168.43.200:5001/jlzhang/grab:latest
+    when:
+      event: tag

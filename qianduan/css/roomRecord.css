@@ -1,0 +1,169 @@
+/*头部*/
+.record_title{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.record_title_top {
+  width: 100%;
+  height: 40px;
+  background-color: #aaa;
+  text-align: center;
+  line-height: 40px;
+  color: #ffffff;
+  letter-spacing: 1px;
+  position: relative;
+}
+.record_title_top>a{
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center;
+  display: inline-block;
+  background: #e1544a;
+  width: 25%;
+  height: 40px;
+}
+.record_title_top>a>i{
+  font-size: 26px;
+}
+.record_btn{
+  padding: 0;
+  height: 40px;
+}
+.record_btn .col-50{
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  color: #1c1c1c;
+}
+.record_content{
+  margin-top: 80px;
+  background-color: #f6f6f6;
+  padding-top: 10px;
+}
+/*房主房间记录*/
+.record_owner>ul>li{
+  background-color: #ffffff;
+  padding: 0 15px;
+}
+.record_owner>ul>li:nth-child(1){
+  height: 50px;
+  width: 100%;
+  line-height: 50px;
+  margin-bottom: 2px;
+}
+.record_owner>ul>li:nth-child(2){
+  height: 40px;
+  width: 100%;
+  line-height: 40px;
+  margin-bottom: 2px;
+}
+
+.record_owner_for{
+  overflow: hidden;
+  height: 70px;
+  padding-top: 15px !important;
+  border-bottom: solid 1px #f6f6f6;
+}
+.record_owner_for>div{
+  float: left;
+}
+.record_owner_for>div:nth-child(1){
+  width: 15%;
+}
+.record_owner_for div:nth-child(1)>img{
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+.record_owner_for div:nth-child(2){
+  height: 40px;
+  font-size: 16px;
+  color: #1c1c1c;
+  width: 65%;
+}
+.record_owner_for div:nth-child(2)>span{
+  font-size: 13px;
+  color: #AAAAAA;
+}
+.record_owner_for div:nth-last-child(1){
+  width: 20%;
+  height: 40px;
+  line-height: 40px;
+  text-align: right;
+}
+
+
+/*.record_owner_for{*/
+  /*border-bottom: 2px;*/
+  /*overflow: hidden;*/
+  /*height: 70px;*/
+  /*padding: 15px !important;*/
+/*}*/
+/*.record_owner_for>div{*/
+  /*float: left;*/
+/*}*/
+/*.record_owner_for>div:nth-child(1){*/
+  /*width: 15%;*/
+/*}*/
+/*.record_owner_for>div:nth-child(2){*/
+  /*height: 40px;*/
+  /*font-size: 16px;*/
+  /*color: #1c1c1c;*/
+  /*width: 65%;*/
+/*}*/
+/*.record_owner_for>div:nth-child(2)>span {*/
+  /*font-size: 13px;*/
+  /*color: #AAAAAA;*/
+/*}*/
+/*.record_owner_for>div:nth-last-child(1){*/
+  /*width: 20%;*/
+  /*height: 40px;*/
+  /*line-height: 40px;*/
+  /*text-align: right;*/
+/*}*/
+
+/*玩家房间记录*/
+.record_player>ul>li{
+  background-color: #ffffff;
+  padding: 0 15px;
+}
+.record_player>ul>li:nth-child(1){
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 2px;
+}
+/*.record_player_for{*/
+  /*border-bottom: 2px;*/
+  /*overflow: hidden;*/
+  /*padding: 15px !important;*/
+/*}*/
+/*.record_player_for>div{*/
+  /*float: left;*/
+/*}*/
+/*.record_player_for>div:nth-child(1){*/
+  /*width: 15%;*/
+/*}*/
+/*.record_player_for>div:nth-child(2){*/
+  /*height: 40px;*/
+  /*font-size: 16px;*/
+  /*color: #1c1c1c;*/
+  /*width: 65%;*/
+/*}*/
+/*.record_player_for>div:nth-child(2)>span {*/
+  /*font-size: 13px;*/
+  /*color: #AAAAAA;*/
+/*}*/
+/*.record_player_for>div:nth-last-child(1){*/
+  /*width: 20%;*/
+  /*height: 40px;*/
+  /*line-height: 40px;*/
+  /*text-align: right;*/
+/*}*/

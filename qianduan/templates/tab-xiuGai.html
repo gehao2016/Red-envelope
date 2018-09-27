@@ -1,0 +1,79 @@
+<ion-view hide-nav-bar="true" hide-tabs="true">
+  <div class="xiuGai_title">
+    <div>
+      <a ng-click="showHidden(0)" ng-class="{'bgColor': according == 0}">充值钻石</a><a ng-click="showHidden(1)" ng-class="{'bgColor': according == 1}">房间概率</a><a ng-click="showHidden(2)" ng-class="{'bgColor': according == 2}">个人概率</a>
+    </div>
+  </div>
+  <ion-content class="xiuGai_content">
+    <div class="imitation_content" ng-show="according == 0">
+      <div class="imitation_title"><input type="text" id="imitation_search" placeholder="搜索昵称Id..." ng-change="filter(user)" ng-model="user"></div>
+      <ul class="imitation_list">
+        <li class="imt_list" ng-repeat="userList in userLists1">
+          <div>
+            <span style="width: 30%;">ID : {{userList.id}}</span><span class="imt_name">昵称 : {{userList.name}}</span>
+          </div>
+          <div>
+            <label><input ng-click="qieHuan1(userList,beans)" type="radio" class="checkBooles" name="def"><i style="border-radius: 50%">✓</i></label>
+            <input type="text" placeholder="钻石..." onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" ng-change="changes(beans)" ng-model="beans" class="imitation_input" ng-disabled="!userList.boole">
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="probability_content" ng-show="according == 1">
+      <div class="probability_title"><input type="text" id="probability_search" ng-model="theRoomId1" placeholder="搜索房间id..."></div>
+      <ul class="probability_lists">
+        <li class="probability_list" ng-repeat="userList in userLists | filter:{'id' : theRoomId1}">
+          <div>
+            <span style="width: 30%;">ID : {{userList.id}}</span><span class="probability_name">昵称 : {{userList.name}}</span>
+          </div>
+          <div>
+            <label><input ng-click="qieHuan(userList)" type="radio" class="checkBooles1" name="abc"><i style="border-radius: 50%">✓</i></label>
+            <a ng-click="reduce1($index)" href="javascript:;" class="probability_btn">-</a>
+            <input type="text" ng-change="changes1(userList.rate)" ng-model="userList.rate" class="probability_input" ng-disabled="!userList.boole">
+            <a ng-click="add1($index)" href="javascript:;" class="probability_btn">+</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="rate_content" ng-show="according == 2">
+      <div class="rate_title"><input type="text" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" ng-change="roomdata(theRoomId2)" id="rate_search" ng-model="theRoomId2" placeholder="搜索房间id..."><a ng-click="userRate(theRoomId2)">搜索</a></div>
+      <ul class="rate_lists">
+        <li class="rate_list" ng-repeat="userList in RateData.users">
+          <div>
+            <a ng-click="deleteUser($index)"> <i class="icon ion-minus-circled"></i></a>
+            <span style="width: 35%;">ID : <input onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" style="display: inline-block;" ng-change="numbers($index,userList.userID)" type="text" ng-model="userList.userID"></span>
+          </div>
+          <div>
+            <a ng-click="reduce($index)" href="javascript:;" class="rate_btn">-</a>
+            <input type="text" onkeyup="value=value.replace(/^[^0-9]\D*$|\D*/gi,'')" ng-change="changes2($index,userList.rate)" ng-model="userList.rate" class="rate_input">
+            <a ng-click="add($index)" href="javascript:;" class="rate_btn">+</a>
+          </div>
+        </li>
+        <li class="rate_zengjia">
+          <a href="javascript:;" ng-click="addUser()"><i class="icon ion-plus-circled"></i>增加用户</a>
+        </li>
+      </ul>
+    </div>
+  </ion-content>
+  <div class="imitation_footer" ng-if="according == 0"><a ng-click="hiddenDisplay(true)">确定</a></div>
+  <div class="imitation_maskPrompt" ng-if="maskPrompt">
+    <div>
+      <div>是否充值<span style="color: #e1544a;margin: 0 3px;">{{ recharge.money }}</span>钻石？</div>
+      <div><a ng-click="displayNone()" href="javascript:;">取消</a><a  ng-click="upload()" href="javascript:;">确定</a></div>
+    </div>
+  </div>
+  <div class="probability_footer" ng-if="according == 1"><a ng-click="hiddenDisplay1(true)">确定</a></div>
+  <div class="probability_maskPrompt" ng-if="maskPrompt1">
+    <div>
+      <div>是否修改概率为<span style="color: #e1544a;margin: 0 3px;">{{ rateData.rate }}</span>？</div>
+      <div><a ng-click="displayNone1()" href="javascript:;">取消</a><a  ng-click="upload1()" href="javascript:;">确定</a></div>
+    </div>
+  </div>
+  <div class="rate_footer" ng-if="according == 2"><a ng-click="hiddenDisplay2(true)">确定</a></div>
+  <div class="rate_maskPrompt" ng-if="maskPrompt2">
+    <div>
+      <div>是否修改概率？</div>
+      <div><a ng-click="displayNone2()" href="javascript:;">取消</a><a  ng-click="upRate()" href="javascript:;">确定</a></div>
+    </div>
+  </div>
+</ion-view>

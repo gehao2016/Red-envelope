@@ -1,0 +1,289 @@
+
+/*.theHal_title {*/
+  /*width: 100%;*/
+  /*height: 40px;*/
+  /*background-color: black;*/
+  /*text-align: center;*/
+  /*line-height: 40px;*/
+  /*font-size: 18px;*/
+  /*color: #ffffff;*/
+/*}*/
+/*.theHal_title>a:nth-child(1){*/
+  /*position: absolute;*/
+  /*left: 0;*/
+  /*color: #ffffff;*/
+  /*display: inline-block;*/
+  /*width: 50px;*/
+  /*height: 40px;*/
+/*}*/
+/*.theHal_title>a:nth-last-child(1){*/
+  /*position: absolute;*/
+  /*right: 0;*/
+  /*color: white;*/
+  /*display: inline-block;*/
+  /*width: 50px;*/
+  /*height: 40px;*/
+  /*font-size: 30px;*/
+/*}*/
+.theHal_content {
+  background: #f6f6f6;
+}
+/*头部*/
+.theHal_top{
+  width: 100%;
+  height: 270px;
+}
+/*图片*/
+.theHal_banner{
+  width: 100%;
+  height: 257px;
+  background: url("../images/beijing01.png") no-repeat top center;
+  background-size: 100%;
+  text-align: center;
+  padding-top: 20px;
+  position: relative;
+  margin-bottom: 7px;
+}
+.theHal_bgimg{
+  width: 312px;
+  height: 20px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  position: relative;
+  left: 50%;
+  margin-left: -145px;
+  background: url("../images/beijing.png") no-repeat;
+}
+.theHal_text1{
+  display: inline-block;
+  width: 308px;
+  height: 20px;
+  font-size: 14px;
+  color: #ffffff;
+  overflow: hidden;
+  position: relative;
+}
+.theHal_text1>div{
+  height: 20px;
+  width: 760px;
+  text-align: left;
+  padding-left: 10px;
+  position: absolute;
+  left: 0;
+  top:0;
+  animation:myfirst 10s linear infinite;
+}
+/*跑马灯效果 媒体查询*/
+@keyframes myfirst
+{
+  0%   {left:0;}
+  10%  {left:-40px;}
+  20%  {left:-80px;}
+  30%  {left:-120px;}
+  40%  {left:-160px;}
+  50%  {left:-200px;}
+  60%  {left:-240px;}
+  70%  {left:-280px;}
+  80%  {left:-320px;}
+  90%  {left:-360px;}
+  100% {left:-400px;}
+}
+.theHal_bgimg>img{
+  position: absolute;
+  left: -20px;
+  top: -2px;
+}
+.theHal_banner>p{
+  font-size: 18px;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+.theHal_banner>p>span{
+  font-size: 14px;
+}
+.theHal_banner>a{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -144px;
+}
+.theHal_banner>a .theHal_gif1{
+  height: 150px;
+  width: 45%;
+  position: absolute;
+  top: 10px;
+  left: 27.5%;
+}
+/*.theHal_banner>a .theHal_gif2{*/
+  /*height: 140px;*/
+  /*width: 44%;*/
+  /*position: absolute;*/
+  /*top: 13px;*/
+  /*right: 5%;*/
+/*}*/
+.theHal_switch{
+  height: 54px;
+  border-top: solid 1px #eee;
+  padding: 10px 15px;
+}
+.theHal_switch>div{
+  width: 100%;
+  height: 100%;
+  border: solid 1px #e1544a;
+  border-radius: 5px;
+  display: flex;
+  display: -webkit-flex;
+}
+.theHal_switch>div>a{
+  display: inline-block;
+  height: 100%;
+  flex-grow: 1;
+  font-size: 14px;
+  text-align: center;
+  line-height: 31px;
+  letter-spacing: 2px;
+  color: #e1544a;
+}
+.theHal_switch>div>a:nth-child(2){
+  border-right: 1px solid #e1544a;
+  border-left: 1px solid #e1544a;
+}
+
+
+
+/*列表*/
+.theHal_theTitle{
+  margin-bottom: 20px;
+}
+.theHal_theTitle .row{
+  margin: 0;
+}
+.theHal_theTitle .col-50 {
+  padding: 0 5px;
+  height: 22px;
+  font-size: 15px;
+  line-height: 22px;
+  /*margin-bottom: 25px;*/
+  color: #e1544a;
+}
+.theHal_theTitle .col-50>img{
+  padding: 0 5px;
+}
+.theHal_theTitle .col-50>img{
+  position: relative;
+  top: -2px;
+}
+.theHal_list{
+  padding: 0 11px;
+}
+.theHal_list>li{
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  padding: 4px;
+  color: #ffffff;
+  margin-right: 1px;
+}
+
+.theHal_one>li:nth-child(1) .theHal_bg{
+  background: url("../gif/zhadanVIP1.png") no-repeat center;
+  background-size: 100% 100%;
+}
+.theHal_one>li:nth-child(2) .theHal_bg{
+  background: url("../gif/zhadanVIP2.png") no-repeat center;
+  background-size: 100% 100%;
+}
+.theHal_one>li:nth-child(3) .theHal_bg{
+  background: url("../gif/zhadanVIP3.png") no-repeat center;
+  background-size: 100% 100%;
+}
+.theHal_two>li:nth-child(1) .theHal_bg{
+  background: url("../gif/pinshiVIP1.png") no-repeat center;
+  background-size: 100% 100%;
+}
+.theHal_two>li:nth-child(2) .theHal_bg{
+  background: url("../gif/pinshiVIP2.png") no-repeat center;
+  background-size: 100% 100%;
+}
+.theHal_two>li:nth-child(3) .theHal_bg{
+  background: url("../gif/pinshiVIP3.png") no-repeat center;
+  background-size: 100% 100%;
+}
+.theHal_three>li:nth-child(1) .theHal_bg{
+  background: url("../gif/jingcaiVIP1.png") no-repeat center;
+  background-size: 100% 100%;
+}
+.theHal_three>li:nth-child(2) .theHal_bg{
+  background: url("../gif/jingcaiVIP2.png") no-repeat center;
+  background-size: 100% 100%;
+}
+.theHal_three>li:nth-child(3) .theHal_bg{
+  background: url("../gif/jingcaiVIP3.png") no-repeat center;
+  background-size: 100% 100%;
+}
+.theHal_bg{
+  border-radius: 8px;
+  padding: 10px;
+  height: 135px;
+}
+.theHal_for{
+  background: url("../gif/zhadanPT.png") no-repeat;
+  background-size: 100% 100%;
+}
+.theHal_five{
+  background: url("../gif/pinshiPT.png") no-repeat;
+  background-size: 100% 100%;
+}
+.theHal_six{
+  background: url("../gif/jingcaiPT.png") no-repeat;
+  background-size: 100% 100%;
+}
+.theHal_border{
+  height: 100%;
+  position: relative;
+}
+.theHal_border>div>div{
+  position: absolute;
+  left: 0px;
+  top: 55px;
+  width: 100%;
+  max-height: 40px;
+  padding: 0 2px;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.theHal_border>div>h5{
+  color: #ffffff;
+  height: 20px;
+  line-height: 20px;
+  position: relative;
+  top: 30px;
+}
+.theHal_border>div>h5>span{
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  margin-top: 2px;
+  border-radius: 50%;
+  margin-left: 2px;
+}
+.theHal_border>div>p{
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: 200;
+  width: 100%;
+  position: absolute;
+  bottom: -3px;
+  left: 0px;
+}
+.theHal_text{
+  font-size: 13px;
+  color: rgb(170,170,170);
+  text-align: center;
+  padding: 15px 0;
+  letter-spacing: 2px;
+}

@@ -1,0 +1,138 @@
+/*头部*/
+/*.account_title {*/
+  /*width: 100%;*/
+  /*height: 40px;*/
+  /*position: fixed;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  /*background-color: #000000;*/
+  /*text-align: center;*/
+  /*line-height: 40px;*/
+  /*font-size: 18px;*/
+  /*color: #ffffff;*/
+  /*letter-spacing: 1px;*/
+  /*z-index: 2;*/
+/*}*/
+/*.account_title>a:nth-child(1){*/
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  /*color: #ffffff;*/
+  /*font-size: 24px;*/
+  /*text-align: center;*/
+  /*display: inline-block;*/
+  /*width: 15%;*/
+  /*height:100%;*/
+/*}*/
+/*.account_title>a:nth-last-child(1){*/
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*right: 0;*/
+  /*color: #ffffff;*/
+  /*display: inline-block;*/
+  /*width: 15%;*/
+  /*height:100%;*/
+/*}*/
+/*.account_title>a:nth-last-child(1)>img{*/
+  /*position: relative;*/
+  /*top: -2px;*/
+/*}*/
+.account_content {
+  /*margin-top: 40px;*/
+  background: #f6f6f6;
+}
+.account_content .icon{
+  width: 16px;
+  height: 16px;
+}
+.account_content .img>img{
+  padding: 0 10px 0 5px;
+  position: relative;top: -2px;
+}
+.account_personal{
+  height: 80px;
+  line-height: 80px;
+  background: white;
+  margin-bottom: 15px;
+  padding: 0 10px;
+}
+.account_personal>img{
+  display: inline-block;
+  border-radius: 50%;
+}
+.account_personal>span{
+  font-size: 14px;
+  color: rgb(28,28,28);
+  margin-left: 10px;
+}
+.account_content .row{
+  height: 48px;
+  background: white;
+  line-height: 48px;
+  padding: 0 10px;
+  color: rgb(28,28,28);
+  margin: 0 0 5px 0;
+}
+.account_content .row>div:nth-last-child(1){
+  text-align: right;
+  padding-right: 10px;
+}
+.account_content .row>div:nth-last-child(1)>a{
+  font-size: 14px;
+  color: rgb(28,28,28);
+}
+.account_content .row>div:nth-last-child(1)>a>b{
+  color: #e1544a;
+  padding: 0 2px;
+}
+.account_record{
+  width: 100%;
+  height: 48px;
+  line-height: 48px;
+  background: #ffffff;
+  padding: 0 10px;
+  margin-bottom: 5px;
+}
+.account_record>a{
+  display: inline-block;
+  width: 15%;
+  height: 100%;
+  float: right;
+  text-align: right;
+  padding: 0 10px;
+  color: #AAAAAA;
+}
+
+.account_again{
+  height: 48px;
+  line-height: 48px;
+  background: #ffffff;
+  padding: 0 10px;
+  color: rgb(28,28,28);
+}
+.account_customer{
+  height: 48px;
+  line-height: 48px;
+  background: #ffffff;
+  margin-bottom: 5px;
+  padding: 0 10px;
+}
+
+/*支付成功遮罩*/
+.account_success{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.0);
+}
+.account_success img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+

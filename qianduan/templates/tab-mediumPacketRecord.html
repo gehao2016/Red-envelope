@@ -1,0 +1,47 @@
+<ion-view hide-nav-bar="true" hide-tabs="true" cache-view="false">
+  <div class="mediumPR_title1"><a ng-touchstart="GoBack()"><i class="icon ion-ios-arrow-left"></i>返回房间</a></div>
+  <div class="mediumPR_title">
+    <div class="mediumPR_beans">
+      <div>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-jindou"></use>
+        </svg>
+        房间余豆
+      </div>
+      <div>
+        余<span style="color: #E1544A;margin: 0 4px;">{{datails.money}}</span>豆
+      </div>
+    </div>
+    <div class="mediumPR_record">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-jilu"></use>
+      </svg>
+      中包记录
+    </div>
+  </div>
+
+  <ion-content class="mediumPR_content">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+      <ul>
+        <li class="mediumPR_for" ng-repeat="datail in datails.records.slice().reverse()">
+          <div><img ng-src= {{portrait}} alt="头像"></div>
+          <div>{{datail.message}} <br /> <span>{{datail.time}}</span> </div>
+          <div>{{datail.money}}豆<br/>
+            <span style="color: #e1544a;" ng-show="datail.mine">
+              <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-zhong"></use>
+              </svg>
+              采{{datail.mine}}
+            </span><br ng-show="datail.mine" />
+            <span style="color: #2c6a2b;" ng-show="datail.welfare">
+              <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-jiangli"></use>
+              </svg>
+              福利{{datail.welfare}}
+            </span>
+          </div>
+        </li>
+      </ul>
+    <div ng-show="datails.records.length < 1" style="text-align: center;font-size: 16px;color: #aaa;position: absolute;left: 0;top: 40%;width: 100%;">暂无中包记录!!!</div>
+  </ion-content>
+</ion-view>

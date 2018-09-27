@@ -1,0 +1,238 @@
+<ion-view hide-nav-bar="true" hide-tabs="true" cache-view='false' style="overflow:hidden;" >
+  <div class="theRoom_title"><a ng-click="theHal()"><i class="icon ion-ios-arrow-left"></i>返回大厅</a>
+    <span ng-click="shareRoom(true)">分享</span>
+    <input type="text" id="texts" ng-model="urls" style="width: 100%;height: 1px;background: #AAAAAA;color:#AAAAAA">
+    <a ng-click="SHMembers(true)">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-qunzhu"></use>
+      </svg>
+    </a>
+  </div>
+  <!--二维码弹窗-->
+  <div class="theRoom_code" ng-if="codeShow">
+    <div>
+      <div id="qrcode" style="width:120px; height:120px; margin:15px 70px;"></div>
+      <div>你要复制房间链接给好友吗?</div>
+      <div><a ng-click="shareRoom(false)" href="javascript:;">取消</a><a  ng-click="copyLink()" href="javascript:;">复制链接</a></div>
+    </div>
+  </div>
+  <!--开包效果-->
+  <div  class="openBagPage" ng-if="openBag">
+    <div class="contentPage">
+      <div style="position: relative;">
+        <span class="close" ng-click="closeHb()"></span>  <!-- × -->
+        <div style="position:fixed" class="contentText">
+          <img ng-src="{{recordData.ownerPortrait}}" alt="" style="width:60px;height:60px;">
+          <div style="font-size:18px;margin:10px;">{{recordData.ownerName}}</div>
+          <div style="font-size:18px" ng-show="slow">
+            手慢了,豆包派完了
+          </div>
+          <div style="font-size:14px" ng-show="!slow">给你发了一个豆包</div>
+          <div style="font-size:22px;margin:35px 0 25px;" ng-show="!slow">恭喜发财,大吉大利</div>
+          <div  ng-show="!slow" >
+            <img src="images/kai.png" alt="" id="chai" ng-click="robHB(recordData)">
+          </div>
+          <div style="font-size:14px;margin-top: 15px;" ng-show="slow||recordData.ownerShow"  ng-click="goDetail(recordData)">
+              看看大家的手气>
+          </div>
+        </div>
+        <img src="images/beijing1.png">
+      </div>
+    </div>
+
+  </div>
+  <!--豆包主体功能-->
+  <ion-content class="theRoom_content" ng-click="shows()" style="padding-bottom:50px;"  id="content">
+
+    <ion-scroll on-scroll="scrollBar()" ng-style="wideHigh" id="scrolldIV" delegate-handle="myscroll">
+      <!--<ion-refresher pulling-text="获取更多聊天记录" on-refresh="doRefresh()"></ion-refresher>-->
+      <div ng-touchstart="doRefresh()" style="text-align: center;border-bottom:1px solid #e0e0e0;font-size:14px;padding:10px;color:#2c90ff" ng-if="ltLength>20">获取更多聊天记录</div>
+      <div class="list"  ng-repeat="record in chatRecordData track by record.Identification">
+        <!--自己发送聊天消息展示-->
+        <div class="xiaoxiBox" ng-if="record.type=='message'&&record.ownerMsg" >
+          <div style="float:right"><img ng-src="{{record.ownerPortrait}}" alt="头像" style="width:40px;height:40px;"></div>
+          <div class="xiaoxi" style=" float:right;">
+            {{record.message}}
+            <div class="triangle_right"></div>
+          </div>
+        </div>
+        <!--其他成员发送聊天消息展示-->
+        <div class="xiaoxiBox" ng-if="record.type=='message'&&!record.ownerMsg" >
+          <div><img ng-src="{{record.ownerPortrait}}" alt="头像" style="width:40px;height:40px;"></div>
+          <div class="xiaoxi2" style="">
+            {{record.message}}
+            <div class="triangle_left"></div>
+          </div>
+        </div>
+        <!--自己未踩豆包-->
+        <div class="hongbaoBox1"ng-if="record.type=='redEnvelop'&&!record.openData&&record.ownerMsg">
+          <div style="float:right"><img ng-src="{{record.ownerPortrait}}" alt="头像" style="width:40px;height:40px;"></div>
+          <div style="float:right" class="hongbao1" ng-click="openHb(record)">
+            <img src="images/hongbao5.png" width="230" height="84" alt="豆包背景" ng-if="!record.fuli">
+            <img src="images/hongbao9.png" width="230" height="84" alt="豆包背景" ng-if="record.fuli">
+            <span>{{record.message}}</span><span style="top:10px;left:120px;" ng-if="record.fuli">错包福利</span>
+            <span style="position: absolute;left: 58px;top: 34px;font-size: 12px;color: #fff;">领取豆包</span>
+          </div>
+
+        </div>
+        <!--未采豆包-->
+        <div class="hongbaoBox" ng-if="record.type=='redEnvelop'&&!record.openData&&!record.ownerMsg" >
+          <div><img ng-src="{{record.ownerPortrait}}" alt="头像" style="width:40px;height:40px;"></div>
+          <div class="hongbao" ng-click="openHb(record)">
+            <img src="images/hongbao2.png" width="230" height="84" alt="豆包背景" ng-if="!record.fuli">
+            <img src="images/hongbao7.png" width="230" height="84" alt="豆包背景" ng-if="record.fuli">
+            <span>{{record.message}}</span><span style="top:10px;left:120px;" ng-if="record.fuli">错包福利</span>
+            <span style="position: absolute;left: 63px;top: 34px;font-size: 12px;color: #fff;">领取豆包</span>
+          </div>
+        </div>
+        <!--自己已踩豆包-->
+        <div class="hongbaoBox1" ng-if="record.type=='redEnvelop'&&record.openData&&record.ownerMsg">
+          <div style="float: right;"><img ng-src="{{record.ownerPortrait}}" alt="头像" style="width:40px;height:40px;"></div>
+          <div style="float: right;" class="hongbao1" ng-click="openHb(record)">
+            <img src="images/hongbao4.png" width="230" height="84" alt="豆包背景" ng-if="!record.fuli">
+            <img src="images/hongbao8.png" width="230" height="84" alt="豆包背景" ng-if="record.fuli">
+            <span>{{record.message}}</span><span style="top:10px;left:120px;" ng-if="record.fuli">错包福利</span>
+            <span style="top:32px;">{{record.openValue}}</span>
+          </div>
+        </div>
+        <!--已采豆包-->
+        <div class="hongbaoBox"  ng-if="record.type=='redEnvelop'&&record.openData&&!record.ownerMsg">
+          <div><img ng-src="{{record.ownerPortrait}}" alt="头像" style="width:40px;height:40px;"></div>
+          <div class="hongbao" ng-click="openHb(record)">
+            <img src="images/hongbao3.png" width="230" height="84" alt="豆包背景" ng-if="!record.fuli">
+            <img src="images/hongbao6.png" width="230" height="84" alt="豆包背景" ng-if="record.fuli">
+            <span>{{record.message}}</span><span style="top:10px;left:120px;" ng-if="record.fuli">错包福利</span>
+            <span style="top:32px;">{{record.openValue}}</span>
+          </div>
+        </div>
+        <!--采包记录-->
+        <div class="receiveWarn" ng-if="record.type=='redEnvelopRecord'&&record.suc&&!jq">
+          <img src="images/hongbao.png" style="margin-righe:10px;">&nbsp;&nbsp;你领取了{{record.belong}}的 <span style="color: #e1544a;">豆包</span>
+        </div>
+        <!--豆包主人的提示信息-->
+        <div class="HomeownerWarn" ng-if="record.type=='redEnvelopRecord'&&record.self&&!jq">
+          <img src="images/hongbao.png" style="margin-righe:10px;">&nbsp;&nbsp;{{record.userName}}领取了你的<span style="color: #e1544a;">豆包</span>
+        </div>
+        <!--豆包已采完消息-->
+        <div class="receiveWarn" ng-if="record.type=='redEnvelopInfo'" style="color:#e1544a" >
+          <img src="images/hongbao.png" style="margin-righe:10px;">&nbsp;&nbsp;{{record.belong}}的({{record.HBname}})豆包被采完</span>
+        </div>
+        <!--豆包异常消息-->
+        <div class="receiveWarn" ng-if="record.type=='response'" style="color:#e1544a" >
+          <img src="images/hongbao.png" style="margin-righe:10px;">&nbsp;&nbsp;{{record.message}}</span>
+        </div>
+        <!--提示框-->
+        <div class="receiveWarn" ng-if="false" style="color:#e1544a" >
+          <img src="images/hongbao.png" style="margin-righe:10px;">&nbsp;&nbsp;！！！当前账号豆数不够</span>
+        </div>
+        <!--中豆提示-->
+        <div class="receiveWarn" ng-if="!!record.redEnvelopMine" style="color:#060;font-weight: bold;">
+          <div ng-repeat="zhognlei in record.redEnvelopMine">
+            <img src="images/hongbao.png" style="margin-righe:10px;">&nbsp;&nbsp;{{zhognlei.userName}},你已采{{record.belong}}的豆包({{record.HBname}})&nbsp;&nbsp;{{zhognlei.money}}豆</span>
+          </div>
+        </div>
+        <!--福利提示-->
+        <div class="receiveWarn" ng-if="!!record.redEnvelopWelfare" style="color:#0000ff;font-weight: bold;">
+          <div ng-repeat="zhognlei in record.redEnvelopWelfare">
+            <img src="images/hongbao.png" style="margin-righe:10px;">&nbsp;&nbsp;{{zhognlei.userName}},你已获得{{record.belong}}的豆包({{record.HBname}})福利&nbsp;&nbsp;{{zhognlei.money}}豆</span>
+          </div>
+        </div>
+        <!--中多个雷福利提示-->
+        <div class="receiveWarn" ng-if="!!record.senderWelfare" style="color:#0000ff;font-weight: bold;">
+          <div>
+            <img src="images/hongbao.png" style="margin-righe:10px;">&nbsp;&nbsp;{{record.senderWelfare.userName}}的包,已获得多雷福利 : {{record.senderWelfare.money}}豆</span>
+          </div>
+        </div>
+      </div>
+      <!--<button ng-click="packageDetails()">豆包</button>-->
+    </ion-scroll>
+
+
+  </ion-content>
+
+  <!--页脚-->
+  <div class="theRoom_footer">
+    <ul class="theRoom_footer_top">
+      <li><input type="text" id="text"></li>
+      <li ng-click="sendMassage()" id="btnSend">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-fenxiang"></use>
+        </svg>
+      </li>
+      <li ng-click="ShowHidden()">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-jia"></use>
+        </svg>
+      </li>
+    </ul>
+    <div class="theRoom_footer_bot" ng-show="SHred">
+      <ul>
+        <li ng-click="redPackets()">
+          <div>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-doubao"></use>
+            </svg>
+          </div>
+          <p>豆包</p></li>
+        <li ng-click="robotPage()">
+          <div>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-jiqiren"></use>
+            </svg>
+          </div>
+          <p>机器人</p></li>
+        <li ng-click="mediumPacketRecord()">
+          <div>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-yue"></use>
+            </svg>
+          </div>
+          <p>余豆</p></li>
+        <li ng-click="chatRecord()">
+          <div>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-miao"></use>
+            </svg>
+          </div>
+          <p>秒抢</p></li>
+      </ul>
+    </div>
+  </div>
+
+  <!--成员列表-->
+    <div class="theRoom_members" ng-show="members"></div>  <!-- 遮罩 -->
+    <div class="theRoom_memberslist" id="theRoom_lists" ng-show="members">
+      <p class="theRoom_player">玩家({{num}})
+        <a ng-click="showHidden()" ng-class="{'bgcolors':judge}">加豆</a>
+        <a  ng-show="not" ng-click="fenpei()">确定</a>
+        <a ng-click="SHMembers(false,boole)">关闭</a>
+      </p>
+      <div class="theRoom_search"><input type="text" ng-model="search" placeholder="搜索..."></div>
+      <ion-scroll ng-style="WideHigh">
+        <ul style="width: 100%;height: auto;" >
+          <ul class="theRoom_statistical" ng-show="statistical">
+            <li><span>房间发包总豆</span><strong style="color: #1c1c1c;">{{beanCounts.total}}豆</strong></li>
+            <li><span>所有抢包总豆</span><strong> + {{beanCounts.unpackingAmount}}豆</strong></li>
+            <li><span>获取福利豆数</span><strong> + {{beanCounts.welfareReward}}豆</strong></li>
+            <li><span>玩家中豆豆数</span><strong> + {{beanCounts.mineReward}}豆</strong></li>
+            <li><span>自己发包豆数</span><strong style="color: #AAAAAA;"> - {{beanCounts.money}}豆</strong></li>
+            <li><span>发放福利豆数</span><strong style="color: #AAAAAA;"> - {{beanCounts.welfare}}豆</strong></li>
+            <li><span>自己中豆豆数</span><strong style="color: #AAAAAA;"> - {{beanCounts.mine}}豆</strong></li>
+          </ul>
+          <li class="theRoom_list" ng-repeat="roomdata in roomdatas | filter:{'name' : search}">
+            <div style="font-size: 14px;">
+              <img ng-src="{{roomdata.ownerPortrait}}" alt="头像" style="width:40px;height:40px;margin-right: 6px;">
+              <div title="{{roomdata.name}}" class="theRoom_nickname">{{roomdata.name}}</div>
+              (<span class="theRoom_bean">{{roomdata.money}}</span>豆)
+              <span class="theRoom_manager" ng-show="roomdata.fzIcon">群主</span>
+              <div class="theRoom_addBean" ng-show="not">
+                <label class="theRoom_boolean" ><input type="checkbox"   ng-click="qieHuan(roomdata,checked)" class="checkBoole"><i style="border-radius: 50%;"></i></label>
+                <input type="number" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" ng-disabled="!roomdata.boole" class="theRoom_numberBeans" ng-model="bean" ng-change="change(roomdata,bean)">
+              </div>
+            </div>
+          </li>
+        </ul>
+      </ion-scroll>
+    </div>
+
+</ion-view>

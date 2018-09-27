@@ -1,0 +1,45 @@
+<ion-view hide-nav-bar="true" hide-tabs="true" cache-view='false'>
+  <div class="topUp_title"><a ng-touchend="GoBack()"><i class="icon ion-ios-arrow-left"></i>返回个人</a></div>
+  <ion-content class="topUp_content">
+    <ul class="list">
+      <li class="item">
+        <p>充<span>1000</span>钻石<i class="items">¥ 100</i><label ng-click="chooseMoney(100)"><input type="radio" name="abc" checked><i></i></label></p>
+      </li>
+      <li class="item">
+        <p>充<span>2000</span>钻石<i class="items">¥ 200</i><label ng-click="chooseMoney(200)"><input type="radio" name="abc"><i></i></label></p>
+      </li>
+      <li class="item">
+        <p>充<span>3000</span>钻石<i class="items">¥ 300</i><label ng-click="chooseMoney(300)"><input type="radio" name="abc"><i></i></label></p>
+      </li>
+      <li class="item">
+        <p>充<span>4000</span>钻石<i class="items">¥ 400</i><label ng-click="chooseMoney(400)"><input type="radio" name="abc"><i></i></label></p>
+      </li>
+      <li class="item">
+        <p>充<span>5000</span>钻石<i class="items">¥ 500</i><label ng-click="chooseMoney(500)"><input type="radio" name="abc"><i></i></label></p>
+      </li>
+      <li class="item">
+        <p>充<span>10000</span>钻石<i class="items">¥ 1000</i><label ng-click="chooseMoney(1000)"><input type="radio" name="abc"><i></i></label></p>
+      </li>
+      <!--<li class="item one">-->
+        <!--<p><img src="images/weixin.png" />微信支付<label><input type="radio" name="def" disabled checked><i></i></label></p>-->
+      <!--</li>-->
+    </ul>
+    <!--<a class="topUp_btn" ng-click="hiddenDisplay(0)">确定充值</a>-->
+  </ion-content>
+
+
+  <!--充值确认遮罩-->
+  <div class="topUp_pay" ng-show="pre == 0">
+    <div class="topUp_pay_content">
+      <div><a ng-click="hiddenDisplay(1)"><i class="icon ion-ios-close-empty"></i></a>支付</div>
+      <div class="topUp_money">
+        <p>全民抢豆</p>
+        <div>{{ money | currency : "¥"}}</div>
+      </div>
+      <div class="topUp_btnone">
+        <a>确认支付</a>
+      </div>
+    </div>
+  </div>
+
+</ion-view>

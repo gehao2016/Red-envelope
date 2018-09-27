@@ -1,0 +1,7 @@
+FROM 192.168.43.200:5001/jlzhang/back_end
+
+COPY . /opt/grabRedEnvelopes/static/
+
+WORKDIR /opt/grabRedEnvelopes
+
+CMD ["./grabRedEnvelopes"]

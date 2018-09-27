@@ -1,0 +1,74 @@
+<ion-view hide-nav-bar="true" hide-tabs="true" style=" background: url('images/denglubeijing.png') center no-repeat;background-size: 100%;" cache-view='false'>
+  <style>
+    .login_content{
+      padding: 15px;
+    }
+    .login_box {
+      padding-top: 44%;
+    }
+    .login_box form {
+      padding: 0 20px;
+      position: relative;
+    }
+    .login_box form a{
+      display: block;
+      width: 90px;
+      height: 30px;
+      border: 1px solid #ffffff;
+      color: #ffffff;
+      font-size: 14px;
+      text-decoration: none;
+      text-align: center;
+      line-height: 30px;
+      -webkit-border-radius:5px;
+      -moz-border-radius:5px;
+      border-radius:5px;
+      position: absolute;
+      right: 20px;
+      bottom: 95px;
+    }
+    .login_box input {
+      height: 45px;
+      margin-bottom: 16px;
+      width: 100%;
+      color: #ffffff;
+      background: rgba(250,250,250,0);
+      border-bottom: 1px solid #ffffff;
+    }
+    .login_box ::-webkit-input-placeholder{
+      color: #ffffff;
+    }
+    .login_box form button {
+      height: 45px;
+      width: 100%;
+      margin-top: 26px;
+      background:#f86556;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      letter-spacing: 4px;
+    }
+    .login_btn{
+      display: block;
+      padding: 5px 10px;
+      float: right;
+      margin-right: 20px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 2px;
+      color: #000000;
+    }
+  </style>
+  <ion-content class="login_content">
+    <div class="login_box">
+      <form>
+        <input type="text" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" ng-model="loginuser.phone" required placeholder="手机号" ng-change="ipt(true)" ng-blur="ipt(false)" />
+        <input type="text" maxlength="6" ng-disabled="ban" ng-model="loginuser.yzm" required placeholder="验证码" ng-change="ipt(true)" ng-blur="ipt(false)"/>
+        <a href="javascript:;" ng-click="getTestCode()" ng-bind="description"></a>
+        <button ng-click="doLogin(loginuser)" ng-class="{'btnColor': submit}">登录</button>
+      </form>
+      <a class="login_btn" ng-click="registered()">注册</a>
+    </div>
+  </ion-content>
+</ion-view>

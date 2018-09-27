@@ -1,0 +1,44 @@
+<ion-view hide-nav-bar="true" hide-tabs="true" cache-view='false'>
+  <div class="details_top">
+    <div class="details_header">
+      <div class="details_return" ng-touchstart="GoBack()"><i class="icon ion-ios-arrow-left"></i>返回房间</div>
+      <div class="details_personal">
+        <div><img ng-src="{{headAddressUrl}}{{hongBaoData.ownerID}}" width="60" height="60" alt="头像"></div>
+        <p>{{hongBaoData.ownerName}}</p>
+        <p>{{hongBaoData.message}}</p>
+      </div>
+    </div>
+    <div class="details_receive">领取{{length}}/{{hongBaoData.number}}个 <span ng-show="ownerSelf">共{{hongBaoData.moy}}/{{hongBaoData.money}}</span></div>
+  </div>
+
+  <ion-content class="details_content">
+    <ul class="details_lists">
+      <li ng-repeat="detail in details">
+        <div>
+          <img ng-src="{{headAddressUrl}}{{detail.userID}}" alt="头像">
+        </div>
+        <div>{{detail.userName}} <br /> <span>{{detail.dateTime}}</span> </div>
+        <div>{{detail.money}}豆<br />
+          <span style="color: #2c6a2b;">
+            <svg class="icon" aria-hidden="true" ng-show="detail.mineV==2 || detail.mineV == 1 ">
+              <use xlink:href="#icon-zhong1"></use>
+            </svg>
+            <span ng-show="detail.mineV == 1">免豆</span>
+            <span ng-show="detail.mineV==2">采豆</span>
+            <svg class="icon" aria-hidden="true" ng-show="detail.mineV==3">
+                <use xlink:href="#icon-zhong"></use>
+            </svg>
+            <span style="color: #e1544a;" ng-show="detail.mineV==3">采豆{{detail.mine}}豆</span>
+          </span>
+          <br ng-show="!!detail.welfare && !!detail.mine || !!detail.welfare && detail.mineV==2" />
+          <span style="color: #2c6a2b;" ng-show="!!detail.welfare">
+            <svg class="icon" aria-hidden="true" style="right: -8px;">
+              <use xlink:href="#icon-jiangli"></use>
+            </svg>
+            福利{{detail.welfare}}豆
+          </span>
+        </div>
+      </li>
+    </ul>
+  </ion-content>
+</ion-view>

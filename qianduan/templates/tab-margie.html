@@ -1,0 +1,181 @@
+<ion-view hide-nav-bar="true" cache-view='false' cache-view='false'>
+  <!--<div class="margie_title"><a><i class="icon ion-ios-arrow-left"></i></a>开房申请<a><img src="images/gengduo.png" alt="更多"/></a></div>-->
+  <ion-content class="margie_content">
+    <div class="margie_form">
+      <ul class="margie_bgcolor">
+        <li class="margie_btn">
+          <div class="magnet_btn_div"><a ng-click="showHidden(0)" ng-class="{'fontColor': according == 0}" href="javascript:;">房间</a><a ng-click="showHidden(1)" ng-class="{'fontColor': according == 1}" href="javascript:;">奖励</a><a ng-click="showHidden(2)" ng-class="{'fontColor': according == 2}" href="javascript:;">倍数</a><a ng-click="showHidden(3)" ng-class="{'fontColor': according == 3}" href="javascript:;">福利</a></div>
+          <ul style="width: 100%;padding: 6px 0;">
+            <li class="margie_room"  ng-show="according == 0">
+              <div class="margie_more row">
+                <div class="col-25">房间名称</div>
+                <div class="col-75"><input ng-focus="changeColor(true)" style="font-size: 18px;" ng-change="nameModify(name)" class="margie_inputone" type="text" ng-model="name" ng-class="{'colors': prohibit}"/></div>
+              </div>
+              <div class="margie_more row" ng-show="false">
+                <div class="col-25">房间类型</div>
+                <div class="col-75">
+                  <select ng-model="selectedCar" ng-focus="changeColor(true)" ng-change="selects(selectedCar);" ng-options="y.brand for (x, y) in cars" ng-class="{'colors': prohibit}"></select>
+                </div>
+              </div>
+              <div class="margie_more row">
+                <div class="col-25">房间时长</div>
+                <div class="col-75"><input type="text" ng-focus="changeColor(true)" style="font-size: 18px;" disabled ng-model="hours" class="margie_inputone select-value3" ng-class="{'colors': prohibit}"/></div>
+              </div>
+              <div class="margie_packets margie_more row">
+                <div class="col-25">包数范围</div>
+                <div class="col-75"  ng-class="{'colors': prohibit}">
+                  <input type="text" ng-focus="changeColor(true)" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" maxlength="2" ng-change="modify(minParts,maxParts)" ng-class="{'colors': prohibit}" class="margie_width" ng-model="minParts"/>
+                  -
+                  <input type="text" ng-focus="changeColor(true)" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" maxlength="2" ng-change="modify(minParts,maxParts)" ng-class="{'colors': prohibit}" class="margie_width" ng-model="maxParts"/>包
+                </div>
+              </div>
+              <div class="margie_packets margie_more row">
+                <div class="col-25">豆数范围</div>
+                <div class="col-75"  ng-class="{'colors': prohibit}">
+                  <input type="text" ng-focus="changeColor(true)" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" maxlength="5" ng-change="beanRange(minMoney,maxMoney)" ng-class="{'colors': prohibit}" class="margie_width" ng-model="minMoney"/>
+                  -
+                  <input type="text" ng-focus="changeColor(true)" onkeyup="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" maxlength="5" ng-change="beanRange(minMoney,maxMoney)" ng-class="{'colors': prohibit}" class="margie_width" ng-model="maxMoney"/>豆
+                </div>
+              </div>
+              <div class="margie_pbottom row">
+                <div class="col-25">游戏玩法</div>
+                <div class="col-75">
+                  <label>
+                    <input type="checkbox" ng-click="takeBack()" ng-model="ms">
+                    <i>✓</i>房主免豆
+                  </label>
+                  <label>
+                    <input type="checkbox" ng-click="theTail()" ng-model="wbms" ng-disabled="jq">
+                    <i>✓</i>尾巴免豆
+                  </label>
+                  <label>
+                    <input type="checkbox" ng-click="control()" ng-model="jq" ng-disabled="wbms">
+                    <i>✓</i>不可点
+                  </label>
+                  <label>
+                    <input type="checkbox" ng-click="clear()" ng-model="fzqb">
+                    <i>✓</i>房主清豆
+                  </label>
+                </div>
+              </div>
+              <div style="clear:both;"></div>
+            </li>
+            <li class="margie_input" ng-show="according == 1" style="width: 100%;height: auto;">
+              <ul class="margie_welfare">
+                <li ng-repeat="(key,value) in welfare">{{key}}<input type="text" ng-focus="changeColor(true)" ng-change="welfareChange(key,value)" ng-class="{'colort': prohibit}" ng-model="value"/></li>
+                <div style="clear:both;"></div>
+              </ul>
+            </li>
+            <li class="margie_inputtwo" ng-show="according == 2" style="width: 100%;height: auto;">
+                <ul class="margie_multiple">
+                  <li class="margie_ray" ng-repeat="Number in redNumber">
+                    <div class="margie_lefttwo">{{Number.id}}包</div>
+                    <div class="margie_righttwo">
+                      <div ng-repeat="number in Number.er">{{number.ol}}豆<input type="text" ng-focus="changeColor(true)" ng-model="number.multiple" ng-class="{'colort': prohibit}"/></div>
+                    </div>
+                  </li>
+                </ul>
+                <div style="clear:both;"></div>
+              </li>
+            <li class="margie_input" ng-show="according == 3" style="width: 100%;height: auto;display: flex;">
+              <ul class="margie_welfare1" style="border-right: 2px solid #f6f6f6;">
+                <div>单个炸弹</div>
+                <li ng-repeat="(key,value) in singles">{{key}}豆<input type="text" ng-focus="changeColor(true)" ng-change="singleChange(key,value)" ng-class="{'colort': prohibit}" ng-model="value"/></li>
+              </ul>
+              <ul class="margie_welfare1">
+                <div>多个炸弹</div>
+                <li ng-repeat="(key,value) in multis">{{key}}豆<input type="text" ng-focus="changeColor(true)" ng-change="multiChange(key,value)" ng-class="{'colort': prohibit}" ng-model="value"/></li>
+              </ul>
+              <div style="clear:both;"></div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      </div>
+    </div>
+  </ion-content>
+  <div class="margie_button">
+    <a ng-class="{'bgcolors': prohibit}" ng-click="hiddenDisplay(true,name,minParts,maxParts,redNumber)">确定创建</a>
+  </div>
+
+  <div  class="margie_introduced" ng-if="prompt">
+    <ul>
+      <li style="background: url('../images/information.png') no-repeat center;background-size: 100% 100%;"></li>
+      <li style="background: url('../images/reward.png') no-repeat center;background-size: 100% 100%;"></li>
+      <li style="background: url('../images/multiple.png') no-repeat center;background-size: 100% 100%;"></li>
+    </ul>
+    <div ng-click="shutDown()"></div>
+  </div>
+
+  <!--开房提示-->
+  <div class="margie_maskPrompt" ng-if="maskPrompt">
+    <div>
+      <div>提示</div>
+      <div class="margie_divwelfare">
+        <div class="margie_left">奖励:</div>
+        <div class="margie_right">
+          <ion-scroll zooming="true" style="width: 100%;height: 70px">
+            <ul style="width: 100%;height:auto;">
+              <li class="margie_reward" ng-repeat="(key,value) in welfare">
+                {{key}}奖励<span>{{value}}</span>
+              </li>
+              <div style="clear:both;"></div>
+            </ul>
+          </ion-scroll>
+        </div>
+      </div>
+      <div style="padding: 5px 0;overflow: hidden;border-bottom: solid 1px #f8f8f8;">
+        <div class="margie_left">倍数:</div>
+        <ul class="margie_right">
+          <ion-scroll zooming="true" style="width: 100%;height: 70px;">
+            <div style="width: 100%;height: auto;">
+              <li class="margie_package" ng-repeat="Number in redNumber">
+                <div style="text-align: center;">{{Number.id}}包</div>
+                <div>
+                  <div ng-repeat="number in Number.er" class="margie_div">{{number.ol}}豆<span>{{number.multiple}}</span>倍</div>
+                </div>
+              </li>
+            </div>
+          </ion-scroll>
+        </ul>
+      </div>
+      <div style="clear: both;"></div>
+      <div style="border-bottom: 1px solid #f8f8f8;padding: 5px 0;overflow: hidden;">
+          <div class="margie_left">玩法:</div>
+          <div class="margie_right" style="height: auto;">
+            <span ng-show="ms == false && wbms == false && jq == false && fzqb == false">普通房间</span>
+            <span ng-show="ms">房主免豆</span>
+            <span ng-show="ms == true && wbms == true">+</span> <span ng-show="wbms">尾巴免豆</span>
+            <span ng-show="ms == true && jq == true">+</span> <span ng-show="jq">禁枪</span>
+            <span ng-show="fzqb == true && wbms == true || fzqb == true && jq == true || fzqb == true && ms == true">+</span> <span ng-show="fzqb">房主清豆</span>
+          </div>
+       </div>
+      <div style="clear: both;"></div>
+      <div style="border-bottom: 1px solid #f8f8f8;padding: 5px 0;overflow: hidden;">
+        <div class="margie_left">类型:</div>
+        <div class="margie_right" style="height: auto;">
+          <span>{{selectedCar.brand}}</span>
+        </div>
+      </div>
+      <!--<div style="border-bottom: 1px solid #f8f8f8;padding: 5px 0;overflow: hidden;">-->
+        <!--<div class="margie_left">包数:</div>-->
+        <!--<div class="margie_right" style="height: auto;">-->
+          <!--<span style="color: #e1544a;">{{minParts}}~{{maxParts}}</span>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div style="border-bottom: 1px solid #f8f8f8;padding: 5px 0;overflow: hidden;">-->
+        <!--<div class="margie_left">豆数:</div>-->
+        <!--<div class="margie_right" style="height: auto;">-->
+          <!--<span style="color: #e1544a;">{{minMoney}}~{{maxMoney}}</span>-->
+        <!--</div>-->
+      <!--</div>-->
+      <p style="font-size: 12px;color: #e1544a;padding: 5px 20px;border-bottom: 1px solid #f8f8f8;">
+        所有数据只在创建房间时可设置,房间创建好后不可修改!!!
+      </p>
+      <p style="padding: 5px 20px;">房间时长{{ hours }}，将扣除
+        <span style="color: #e1544a;">{{ parseInt(hours) * selectedCar.money}}</span>
+        钻石,确定要创建吗？</p>
+      <div style="border-top: solid 1px #f8f8f8;"><a ng-click="hiddenDisplay(false,name,minParts,maxParts,redNumber)">取消</a><a ng-click="determine()">确定</a></div>
+    </div>
+  </div>
+</ion-view>

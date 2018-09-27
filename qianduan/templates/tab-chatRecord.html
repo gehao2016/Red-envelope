@@ -1,0 +1,25 @@
+<ion-view hide-nav-bar="true" hide-tabs="true" cache-view='false'>
+  <div class="chatRecord_title"><a ng-touchstart="GoBack()"><i class="icon ion-ios-arrow-left"></i>返回房间</a></div>
+  <ion-content class="chatRecord_content">
+    <!--秒抢-->
+    <div class="chatRecord_input">
+      <div class="chatRecord_introduce">秒抢 <span ng-show="userLists.isUsing == false && roomDatas.jq != true">(未开启秒抢功能)</span><span ng-show="userLists.isUsing == true">(已开启 : <strong style="color: #e1544a;">{{userLists.second}}</strong> 秒)</span><strong style="color: #e1544a;" ng-show="roomDatas.jq == true">(禁枪房禁止开启秒抢)</strong></div>
+      <div class="chatRecord_seconds">
+        <input ng-show="rightWrong == true" maxlength='4'onkeyup="value=value.replace(/^[^0-9]\D*$|\D*/gi,'')" onpaste="value=value.replace(/^[^1-9]\D*$|\D*/gi,'')" ng-disabled="roomDatas.jq" ng-change="modify(second)" class="robotpage_input1" ng-model="second" type="text">
+        <input ng-show="rightWrong == false" maxlength='4'onkeyup="value=value.replace(/^[^0-9]\D*$|\D*/gi,'')" onpaste="value=value.replace(/^[^2-9]\D*$|\D*/gi,'')" ng-disabled="roomDatas.jq" ng-change="modify(second)" class="robotpage_input1" ng-model="second" type="text">ms
+        <span ng-show="rightWrong == true">(时间限制1000~9000毫秒)</span>
+        <span ng-show="rightWrong == false">(时间限制2000~9000毫秒)</span>
+      </div>
+    </div>
+  </ion-content>
+  <div class="chatRecord_button">
+    <a ng-click="hiddenDisplay(true)">确定</a>
+  </div>
+  <!--确认遮罩-->
+  <div class="chatRecord_maskPrompt" ng-show="maskPrompt">
+    <div>
+      <div><span ng-show="setting.isUsing == true">确定修改秒数为 : <strong>{{setting.second}}</strong> 秒</span><span ng-show="setting.isUsing == false">确定取消秒抢</span></div>
+      <div><a ng-click="hiddenDisplay(false)" href="javascript:;">取消</a><a  ng-click="sureModify()" href="javascript:;">确定</a></div>
+    </div>
+  </div>
+</ion-view>

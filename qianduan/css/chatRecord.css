@@ -1,0 +1,160 @@
+.chatRecord_title{
+  height: 40px;
+  width: 100%;
+  line-height: 40px;
+  text-align: center;
+  position: fixed;
+  color: #ffffff;
+  background-color: #aaa;
+  font-size: 18px;
+  letter-spacing: 2px;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.chatRecord_title>a{
+  display: inline-block;
+  width: 25%;
+  height: 40px;
+  color: #ffffff;
+  background: #e1544a;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 16px;
+}
+.chatRecord_title>a>i{
+  font-size: 26px;
+}
+.chatRecord_content{
+  margin-top: 40px;
+  background: #f6f6f6;
+  padding: 15px;
+}
+.chatRecord_input{
+  width: 100%;
+  color: #AAAAAA;
+  background: #ffffff;
+  border-radius: 5px;
+}
+.chatRecord_input .introduce{
+  color: #1c1c1c;
+  padding: 5px 0;
+  font-size: 16px;
+}
+.chatRecord_input .introduce span{
+  margin-left: 20px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/*修改玩法提示遮罩*/
+.chatRecord_maskPrompt {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .3);
+  position: fixed;
+  z-index: 6;
+  top: 0;
+  left: 0;
+}
+.chatRecord_maskPrompt>div{
+  width: 260px;
+  border-radius: 5px;
+  text-align: center;
+  background: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.chatRecord_maskPrompt>div>div:nth-child(1){
+  height: 80px;
+  line-height: 80px;
+  font-size: 18px;
+  color: #e1544a;
+  border-bottom: solid 1px #AAAAAA;
+}
+.chatRecord_maskPrompt>div>div:nth-last-child(1){
+  height: 50px;
+}
+.chatRecord_maskPrompt>div>div:nth-last-child(1) a{
+  display: inline-block;
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+}
+.chatRecord_maskPrompt a:nth-child(1){
+  color: #AAAAAA;
+  border-right: solid 1px #AAAAAA;
+}
+.chatRecord_maskPrompt a:nth-last-child(1){
+  color: #e1544a;
+}
+
+.chatRecord_button{
+  width: 100%;
+  height: 50px;
+  padding: 5px 0;
+  background: #ffffff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.chatRecord_button>a {
+  display: block;
+  width: 92%;
+  height: 40px;
+  margin-left: 4%;
+  background: #e1544a;
+  color: #ffffff;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 5px;
+}
+.chatRecord_seconds{
+  width: 100%;
+  height: 50px;
+  color: #1c1c1c;
+  line-height: 50px;
+  font-size: 14px;
+  position: relative;
+}
+.chatRecord_seconds>input{
+  display: inline-block;
+  border: 1px solid #e8e8e8;
+  margin: 0 10px 0 15px;
+  text-align: center;
+  padding: 0;
+  width: 50px;
+  height: 30px;
+  border-radius: 5px;
+  color: #e1544a;
+  font-weight: bold;
+}
+.chatRecord_seconds>span{
+  font-size: 14px;
+  color: #1c1c1c;
+  margin-left: 5px;
+}
+
+.chatRecord_introduce{
+  color: #aaa;
+  padding: 5px 15px 0;
+  font-size: 16px;
+}
+.chatRecord_introduce span{
+  margin-left: 10px;
+  font-size: 14px;
+  color: #aaa;
+}
+.chatRecord_introduce>strong{
+  margin-left: 10px;
+  font-size: 14px;
+}
+

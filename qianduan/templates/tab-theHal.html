@@ -1,0 +1,122 @@
+<ion-view hide-nav-bar='true' cache-view='false' cache-view='false'>
+  <ion-pane>
+    <ion-content class="theHal_content">
+      <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+      <div class="theHal_top">
+        <!--<div class="theHal_title"><a><i class="icon ion-chevron-left"></i></a>全民抢豆<a><i class="icon ion-more"></i></a></div>-->
+        <div class="theHal_banner">
+          <div class="theHal_bgimg"><img src="images/tongzhi.png" alt="通知">
+            <div class="theHal_text1">
+              <div>&nbsp;&nbsp;本游戏纯属娱乐，赌博违法禁止一切赌博行为！&nbsp;抵制不良游戏&nbsp;拒绝盗版游戏&nbsp;注意自我保护&nbsp;谨防受骗上当!!</div>
+            </div>
+          </div>
+          <p>游戏大厅&nbsp;<span>(在线人数:{{zxrs}})</span></p>
+          <a href="#">
+            <img src="images/BJ.png" alt="红包娱乐">
+            <img class="theHal_gif1" src="gif/GIF.gif" alt="gif">
+          </a>
+        </div>
+      </div>
+      <div class="theHal_switch">
+        <div><a href="#" ng-click="showHidden(0)" ng-class="{'bgColor': according == 0}">炸弹模式</a><a href="#" ng-click="showHidden(1)" ng-class="{'bgColor': according == 1}">拼十模式</a><a href="#" ng-click="showHidden(2)" ng-class="{'bgColor': according == 2}">竞彩模式</a></div>
+      </div>
+      <ul>
+        <li ng-show="according == 0">
+          <div class="theHal_theTitle">
+            <div class="row">
+              <div class="col-50">
+                <img src="images/hongbao.png" alt="红包">
+                <span>幸运抢豆</span>
+              </div>
+              <div class="col-50" style="text-align: right" ng-click="ShowHidden1()">
+                <span ng-show="room1 == true">收起</span>
+                <span ng-show="room1 == false">展开</span>
+                <img src="images/xiala.png" alt="收起" ng-style="rotate1">
+              </div>
+            </div>
+          </div>
+          <ul class="theHal_list theHal_one" ng-show="room1">
+            <li ng-repeat="theroom in therooms" >
+              <div class="theHal_bg theHal_for" ng-click="clickTheRoom(theroom)">
+                <div class="theHal_border">
+                  <div>
+                    <h5><span>{{theroom.id}}</span>房</h5>
+                    <div ng-show="theroom.booles == false">{{theroom.name}}</div>
+                    <div ng-show="theroom.booles == true">{{theroom.minParts}}~{{theroom.maxParts}}包</div>
+                    <p>
+                      <!--在线人数:{{theroom.people}}人<br />-->
+                      限500人
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li ng-show="according == 1">
+          <div class="theHal_theTitle">
+            <div class="row">
+              <div class="col-50">
+                <img src="images/hongbao.png" alt="红包">
+                <span>幸运抢豆</span>
+              </div>
+              <div class="col-50" style="text-align: right" ng-click="ShowHidden2()">
+                <span ng-show="room2 == true">收起</span>
+                <span ng-show="room2 == false">展开</span>
+                <img src="images/xiala.png" alt="收起" ng-style="rotate2">
+              </div>
+            </div>
+          </div>
+          <ul class="theHal_list theHal_two" ng-show="room2">
+            <!--<li ng-repeat="theroom in therooms" >-->
+              <!--<div class="theHal_bg theHal_five" ng-click="clickTheRoom(theroom)">-->
+                <!--<div class="theHal_border">-->
+                  <!--<div>-->
+                    <!--<h5><span>{{theroom.id}}</span>房</h5>-->
+                    <!--<div>{{theroom.name}}</div>-->
+                    <!--<p>-->
+                      <!--&lt;!&ndash;在线人数:{{theroom.people}}人<br />&ndash;&gt;-->
+                      <!--限500人-->
+                    <!--</p>-->
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</li>-->
+          </ul>
+        </li>
+        <li ng-show="according == 2">
+          <div class="theHal_theTitle">
+            <div class="row">
+              <div class="col-50">
+                <img src="images/hongbao.png" alt="红包">
+                <span>幸运抢豆</span>
+              </div>
+              <div class="col-50" style="text-align: right" ng-click="ShowHidden3()">
+                <span ng-show="room3 == true">收起</span>
+                <span ng-show="room3 == false">展开</span>
+                <img src="images/xiala.png" alt="收起" ng-style="rotate3">
+              </div>
+            </div>
+          </div>
+          <ul class="theHal_list theHal_three" ng-show="room3">
+            <!--<li ng-repeat="theroom in therooms" >-->
+              <!--<div class="theHal_bg theHal_six" ng-click="clickTheRoom(theroom)">-->
+                <!--<div class="theHal_border">-->
+                  <!--<div>-->
+                    <!--<h5><span>{{theroom.id}}</span>房</h5>-->
+                    <!--<div>{{theroom.name}}</div>-->
+                    <!--<p>-->
+                      <!--&lt;!&ndash;在线人数:{{theroom.people}}人<br />&ndash;&gt;-->
+                      <!--限500人-->
+                    <!--</p>-->
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</li>-->
+          </ul>
+        </li>
+      </ul>
+      <p class="theHal_text">更多玩法敬请期待～</p>
+    </ion-content>
+  </ion-pane>
+</ion-view>
